@@ -1,0 +1,143 @@
+.pointer {
+    cursor: pointer;
+}
+
+.logo {
+    width: 130px;
+}
+
+.stories-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    backdrop-filter: blur(15px)
+}
+
+.stories-close-icon-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.stories-close-icon-container > img {
+    width: 24px;
+    height: 24px;
+}
+
+.news-video {
+    object-fit: cover;
+    max-height: 300px;
+    width: 100%;
+}
+
+.video-container {
+    position: relative;
+}
+
+.play-icon-container {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 40%;
+    left: 43%
+}
+
+.mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.swiper_img_1 {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.swip_img_1 {
+    display: block;
+    object-fit: cover;
+    width: 25%;
+    height: 100%;
+}
+
+.card-info-btn-img {
+    width: 36px;
+    height: 36px;
+}
+
+.mySwiperCard {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.swiper-slide-detail {
+    /*width: 90% !important;*/
+    opacity: 1;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.saved-icon {
+    width: 14px;
+    height: 20px;
+}
+
+.flag-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.none {
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    color: white;
+    opacity: 1;
+    display: block;
+    background: url(/public/img/Calendar.svg) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+
+select {
+    background: url(/public/img/filter-icon.svg) no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position-x: 98%;
+    background-position-y: 15px;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    margin-right: 2rem;
+    padding: 1rem;
+    padding-right: 2rem;
+}
+
+input {
+    color: #1AA37A;
+}
+
+.foot_img {
+    width: 300px;
+}
