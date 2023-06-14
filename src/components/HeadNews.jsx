@@ -6,10 +6,12 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import { Navigation, Pagination } from 'swiper'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getText } from '../locales'
 
 const HeadNews = () => {
+    const navigate = useNavigate()
+
     return (
         <>
             <div className="HeadNews">
@@ -31,19 +33,22 @@ const HeadNews = () => {
                                     <div className="h_news_box">
                                         <div className="h_news_text">
                                             <div className="h_news_h">
-                                                Platformada qanday roʼyxatdan
-                                                o`tiladi?
+                                                {getText('more_text')}
                                             </div>
                                             <div className="h_news_p">
-                                                “E-auksion” ESMdan roʼyxatdan
-                                                oʼtish uchun, platformaning bosh
-                                                sahifasidan “Roʼyxatdan oʼtish”
-                                                tugmasini bosish orqali
-                                                roʼyxatdan oʼtiladi.
+                                                {getText(
+                                                    'more_text_description'
+                                                )}
                                             </div>
                                         </div>
                                         <Link className="h_news_btn_link" to="">
-                                            <button className="h_news_btn">
+                                            <button
+                                                onClick={() => {
+                                                    navigate('/registration')
+                                                    window.scrollTo(0, 0)
+                                                }}
+                                                className="h_news_btn"
+                                            >
                                                 {getText('more')}
                                             </button>
                                         </Link>

@@ -141,3 +141,18 @@ input {
 .foot_img {
     width: 300px;
 }
+
+.navbar-avatar {
+    width: 46px;
+    height: 46px;
+}
+
+.user-name {
+    margin-right: 32px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.001em;
+    color: #FFFFFF
+}

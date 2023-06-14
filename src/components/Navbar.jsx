@@ -1,18 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { LANGUAGE } from '../tools/constant'
 import { getText } from '../locales'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeLanguage } from '../store/features/languageSlice'
 
 const Navbar = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    const [language, setLanguage] = useState(localStorage.getItem(LANGUAGE))
-
-    const changeLanguage = (e) => {
+    const dispatch = useDispatch()
+    const language = useSelector((state) => state.language)
+    const inn = useSelector((state) => state.setUsername)
+    const [toggle, setToggle] = useState(false)
+    const [token, setToken] = useState()
+    const languageHandler = (e) => {
         localStorage.setItem(LANGUAGE, e.target.value)
-        // document.location.reload(true)
-        setLanguage(e.target.value)
+        dispatch(changeLanguage(e.target.value))
     }
+
+    const onLogout = () => {
+        navigate('/login')
+        localStorage.removeItem('token')
+        localStorage.removeItem('username')
+        setToken(null)
+    }
+
+    useEffect(() => {
+        const userToken = localStorage.getItem('token')
+        if (userToken && userToken !== token) {
+            setToken(userToken)
+            // window.location.reload(true)
+        }
+    }, [])
 
     return (
         <>
@@ -43,7 +62,7 @@ const Navbar = () => {
                                         alt=""
                                     />
                                     <input
-                                        placeholder="Izlash"
+                                        placeholder={getText('nav_8')}
                                         type="text"
                                         name=""
                                         id=""
@@ -53,17 +72,110 @@ const Navbar = () => {
                                     {getText('nav_8')}
                                 </button>
                             </div>
-                            <div className="col-3 d-flex align-items-center justify-content-end gap-3">
-                                <Link to="/registration" className="nav_btn_1">
-                                    {getText('nav_6')}
-                                </Link>
-                                <Link to="/login" className="nav_btn_2">
-                                    {getText('nav_7')}
-                                </Link>
-                            </div>
+                            {token === null ? (
+                                <div className="col-3 d-flex align-items-center justify-content-end gap-3">
+                                    <Link
+                                        to="/registration"
+                                        className="nav_btn_1"
+                                    >
+                                        {getText('nav_6')}
+                                    </Link>
+                                    <Link to="/login" className="nav_btn_2">
+                                        {getText('nav_7')}
+                                    </Link>
+                                </div>
+                            ) : (
+                                <div
+                                    className={
+                                        'col-3 d-flex flex-row align-items-center justify-content-end gap-3'
+                                    }
+                                >
+                                    {!toggle ? (
+                                        <div
+                                            className={
+                                                'col-3 d-flex flex-row align-items-center justify-content-end gap-3'
+                                            }
+                                        >
+                                            <img
+                                                src={'img/avatar-navbar.png'}
+                                                alt={'avatar'}
+                                                className={
+                                                    'navbar-avatar pointer'
+                                                }
+                                                onClick={() =>
+                                                    navigate('/cabinet')
+                                                }
+                                            />
+
+                                            <p
+                                                className={
+                                                    'user-name pt-3 pointer'
+                                                }
+                                                onClick={() =>
+                                                    navigate('/cabinet')
+                                                }
+                                            >
+                                                {inn}
+                                            </p>
+
+                                            <div
+                                                className={'pointer'}
+                                                onClick={() =>
+                                                    setToggle(!toggle)
+                                                }
+                                            >
+                                                <img
+                                                    src={
+                                                        'img/polygon-navbar.svg'
+                                                    }
+                                                    alt="polygon"
+                                                    style={{
+                                                        transform: toggle
+                                                            ? 'rotate(180deg)'
+                                                            : '',
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div
+                                            className={
+                                                'col-3 d-flex flex-row align-items-center justify-content-end gap-3'
+                                            }
+                                        >
+                                            <button
+                                                onClick={onLogout}
+                                                className="nav_btn_1"
+                                            >
+                                                {getText('nav_9')}
+                                            </button>
+
+                                            <div
+                                                className={'pointer'}
+                                                onClick={() =>
+                                                    setToggle(!toggle)
+                                                }
+                                            >
+                                                <img
+                                                    src={
+                                                        'img/polygon-navbar.svg'
+                                                    }
+                                                    alt="polygon"
+                                                    style={{
+                                                        transform: toggle
+                                                            ? 'rotate(180deg)'
+                                                            : '',
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
+
                 <div className="nav_2">
                     <div className="container">
                         <div className="row justify-content-between w-100">
@@ -152,13 +264,19 @@ const Navbar = () => {
                                 </a>
                                 <div className="nav_lang">
                                     <img
-                                        src="/img/icon_flag_1.png"
+                                        src={
+                                            language === 'uz'
+                                                ? '/img/icon_flag_1.png'
+                                                : language === 'ru'
+                                                ? '/img/twemoji_flag-russia.svg'
+                                                : '/img/flag-um-svgrepo-com.svg'
+                                        }
                                         alt=""
                                         className={'flag-icon'}
                                     />
 
                                     <select
-                                        onChange={changeLanguage}
+                                        onChange={languageHandler}
                                         name=""
                                         id=""
                                         defaultValue={language}

@@ -1,8 +1,11 @@
 import React from 'react'
+import { getReduxText } from '../../locales'
+import { useSelector } from 'react-redux'
 
 const Cab1 = ({ user }) => {
     const phone = localStorage.getItem('phone')
-    console.log(user)
+    const language = useSelector((state) => state.language)
+
     return (
         <>
             <div className="Cab1">
@@ -11,12 +14,19 @@ const Cab1 = ({ user }) => {
                         <div className="col-12">
                             <div className="cab_1">
                                 <div className="cab_1_name">
-                                    Umumiy ma’lumotlar
+                                    {getReduxText(
+                                        'main_cab_generalInfo',
+                                        language
+                                    )}
                                 </div>
                                 <div className="cab_1_box">
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Shaxs turi:
+                                            {getReduxText(
+                                                'main_cab_identity_type',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             Jismoniy shaxs
@@ -24,7 +34,11 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Fuqoroligi:
+                                            {getReduxText(
+                                                'main_cab_citizen',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.citizen}
@@ -32,7 +46,11 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            STIR:
+                                            {getReduxText(
+                                                'main_cab_stir',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.inn}
@@ -40,7 +58,11 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name_2">
                                         <div className="cab_1_box_name_h">
-                                            Ishtirokchi nomi:
+                                            {getReduxText(
+                                                'main_cab_name',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.fsl}
@@ -50,7 +72,11 @@ const Cab1 = ({ user }) => {
                                 <div className="cab_1_box">
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Tug‘ilgan sana:
+                                            {getReduxText(
+                                                'main_cab_birthDate',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.dateBirth}
@@ -58,7 +84,11 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Jinsi:
+                                            {getReduxText(
+                                                'main_cab_gender',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.gender}
@@ -66,7 +96,11 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Pasport seriyasi va raqami:
+                                            {getReduxText(
+                                                'main_cab_passport_number',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.passportNum}
@@ -74,7 +108,11 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name_2">
                                         <div className="cab_1_box_name_h">
-                                            Pasport berilgan sana:
+                                            {getReduxText(
+                                                'main_cab_passport_date',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {user?.passportDate}
@@ -83,42 +121,73 @@ const Cab1 = ({ user }) => {
                                 </div>
                             </div>
                             <div className="cab_1">
-                                <div className="cab_1_name">Manzil</div>
+                                <div className="cab_1_name">
+                                    {getReduxText('main_cab_address', language)}
+                                </div>
                                 <div className="cab_1_box">
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Hudud/viloyat nomi:
+                                            {getReduxText(
+                                                'main_cab_region',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p active">
-                                            Kiritilmagan
+                                            {getReduxText(
+                                                'main_cab_unfilled',
+                                                language
+                                            )}
                                         </div>
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Tuman nomi:
+                                            {getReduxText(
+                                                'main_cab_district',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p active">
-                                            Kiritilmagan
+                                            {getReduxText(
+                                                'main_cab_unfilled',
+                                                language
+                                            )}
                                         </div>
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Manzil :
+                                            {getReduxText(
+                                                'main_cab_address',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p active">
-                                            Kiritilmagan
+                                            {getReduxText(
+                                                'main_cab_unfilled',
+                                                language
+                                            )}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="cab_1">
                                 <div className="cab_1_name">
-                                    Aloqa ma’lumotlari
+                                    {getReduxText(
+                                        'main_cab_contact_information',
+                                        language
+                                    )}
+                                    :
                                 </div>
                                 <div className="cab_1_box">
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Telefon:
+                                            {getReduxText(
+                                                'main_cab_phone',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p">
                                             {phone ?? ''}
@@ -126,18 +195,32 @@ const Cab1 = ({ user }) => {
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            E-mail:
+                                            {getReduxText(
+                                                'main_cab_email',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p active">
-                                            Kiritilmagan
+                                            {getReduxText(
+                                                'main_cab_unfilled',
+                                                language
+                                            )}
                                         </div>
                                     </div>
                                     <div className="cab_1_box_name">
                                         <div className="cab_1_box_name_h">
-                                            Qo‘shimcha telefonlar:
+                                            {getReduxText(
+                                                'main_cab_additional_phone',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p active">
-                                            Kiritilmagan
+                                            {getReduxText(
+                                                'main_cab_unfilled',
+                                                language
+                                            )}
                                         </div>
                                     </div>
                                 </div>

@@ -8,6 +8,7 @@ import {
     REGISTER_CONFIRM,
     REGISTER_USER,
 } from '../tools/urls'
+import { useSelector } from 'react-redux'
 
 export default function PhysicalPersonRegister({
     setErrorText,
@@ -15,6 +16,8 @@ export default function PhysicalPersonRegister({
     setSuccess,
     success,
 }) {
+    const language = useSelector((state) => state.language)
+
     const [citizen, setCitizen] = useState('')
     const [stir, setStir] = useState('')
     const [name, setName] = useState('')
@@ -51,10 +54,13 @@ export default function PhysicalPersonRegister({
         },
     })
 
-    const { response: regions } = useLoad({ url: GET_ACCOUNTS_REGIONS })
+    const { response: regions } = useLoad(
+        { url: GET_ACCOUNTS_REGIONS.replace('en', language) },
+        [language]
+    )
     const { response: districts } = useLoad(
-        { url: GET_ACCOUNTS_DISTRICT_LIST },
-        [region]
+        { url: GET_ACCOUNTS_DISTRICT_LIST.replace('en', language) },
+        [region, language]
     )
 
     useEffect(() => {

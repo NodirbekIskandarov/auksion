@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import InputMask from 'react-input-mask'
 import { usePostRequest } from '../hooks/request'
 import { GET_IN_TOUCH } from '../tools/urls'
 import Alert from './AlertError'
 import AlertSuccess from './AlertSuccess'
+import { getReduxText } from '../locales'
+import { useSelector } from 'react-redux'
 
 const Footer = (message) => {
     const [phone, setPhone] = useState('')
@@ -12,6 +14,8 @@ const Footer = (message) => {
     const [errorText, setErrorText] = useState('')
     const [success, setSuccess] = useState(false)
     const [successText, setSuccessText] = useState('')
+    const language = useSelector((state) => state.language)
+    const navigate = useNavigate()
 
     const getInTouchRequest = usePostRequest({
         url: GET_IN_TOUCH,
@@ -41,8 +45,7 @@ const Footer = (message) => {
                             />
 
                             <div className="foot_h">
-                                Telefon raqamingizni qoldiring va biz sizga
-                                aloqaga chiqamiz !
+                                {getReduxText('get_in_touch', language)}
                             </div>
 
                             <form action="" className="foot_form">
@@ -78,29 +81,79 @@ const Footer = (message) => {
                                     }}
                                     className="form_btn"
                                 >
-                                    Yuborish
+                                    {getReduxText(
+                                        'get_in_touch_button',
+                                        language
+                                    )}
                                 </button>
                             </form>
                         </div>
                         <div className="col-8 d-flex align-items-center justify-content-between">
-                            <Link className="foot_link" to="">
-                                Lotlar
-                            </Link>
-                            <Link className="foot_link" to="">
-                                Auksion haqida
-                            </Link>
-                            <Link className="foot_link" to="">
-                                Interaktiv xizmatlar
-                            </Link>
-                            <Link className="foot_link" to="">
-                                Markaz haqida
-                            </Link>
-                            <Link className="foot_link" to="">
-                                Yangiliklar
-                            </Link>
-                            <Link className="foot_link" to="">
-                                Bog’lanish
-                            </Link>
+                            <div
+                                className="foot_link pointer"
+                                onClick={() => {
+                                    navigate('/')
+                                    window.scrollTo(0, 0)
+                                }}
+                            >
+                                {getReduxText('footer_lots_nav', language)}
+                            </div>
+
+                            <div
+                                className="foot_link pointer"
+                                onClick={() => {
+                                    navigate('/about')
+                                    window.scrollTo(0, 0)
+                                }}
+                            >
+                                {getReduxText(
+                                    'footer_about_auction_nav',
+                                    language
+                                )}
+                            </div>
+
+                            <div
+                                className="foot_link pointer"
+                                onClick={() => {
+                                    navigate('/Interactive')
+                                    window.scrollTo(0, 0)
+                                }}
+                            >
+                                {getReduxText('footer_services_nav', language)}
+                            </div>
+
+                            <div
+                                className="foot_link pointer"
+                                onClick={() => {
+                                    navigate('/')
+                                    window.scrollTo(0, 0)
+                                }}
+                            >
+                                {getReduxText(
+                                    'footer_about_center_nav',
+                                    language
+                                )}
+                            </div>
+
+                            <div
+                                className="foot_link pointer"
+                                onClick={() => {
+                                    navigate('/news')
+                                    window.scrollTo(0, 0)
+                                }}
+                            >
+                                {getReduxText('footer_news_nav', language)}
+                            </div>
+
+                            <div
+                                className="foot_link pointer"
+                                onClick={() => {
+                                    navigate('/contact')
+                                    window.scrollTo(0, 0)
+                                }}
+                            >
+                                {getReduxText('footer_contact_nav', language)}
+                            </div>
 
                             {error ? (
                                 <Alert

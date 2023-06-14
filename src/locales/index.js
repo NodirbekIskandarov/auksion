@@ -1,16 +1,20 @@
-import { LANGUAGE } from "../tools/constant";
-import { ru } from "./ru";
-import { uz } from "./uz";
-import { en } from "./en";
+import { LANGUAGE } from '../tools/constant'
+import { ru } from './ru'
+import { uz } from './uz'
+import { en } from './en'
 
 export const getLanguage = () => {
-  return localStorage.getItem(LANGUAGE);
-};
+    return localStorage.getItem(LANGUAGE)
+}
 
 export const getText = (word) => {
-  return getLanguage() === "uz"
-    ? uz[word]
-    : getLanguage() === "ru"
-    ? ru[word]
-    : en[word];
-};
+    return getLanguage() === 'uz'
+        ? uz[word]
+        : getLanguage() === 'ru'
+        ? ru[word]
+        : en[word]
+}
+
+export const getReduxText = (word, lang) => {
+    return lang === 'uz' ? uz[word] : lang === 'ru' ? ru[word] : en[word]
+}

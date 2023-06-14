@@ -1,15 +1,24 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { getText } from '../locales'
 import { useLoad } from '../hooks/request'
 import { GET_CONTENT_NEWS } from '../tools/urls'
 import ReactPlayer from 'react-player'
 import PlayIcon from '../img/PlayIcon.png'
+import { useSelector } from 'react-redux'
 
 const HeadMessage = () => {
     const [moviePlay, setMoviePlay] = useState(true)
     const location = useLocation()
-    const { response } = useLoad({ url: GET_CONTENT_NEWS })
+    const navigate = useNavigate()
+    const language = useSelector((state) => state.language)
+    const { response } = useLoad(
+        {
+            url: GET_CONTENT_NEWS.replace('en', language),
+        },
+        [language]
+    )
+
     return (
         <>
             <div className="HeadMessage">
@@ -106,9 +115,15 @@ const HeadMessage = () => {
                                 location.pathname === '/news' ? 'd-none' : ''
                             }`}
                         >
-                            <Link to="" className="h_mes_btn">
+                            <button
+                                onClick={() => {
+                                    navigate('/news')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className="h_mes_btn"
+                            >
                                 {getText('more_2')}
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

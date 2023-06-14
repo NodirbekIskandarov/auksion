@@ -8,6 +8,10 @@ export default function checkDeadlineDetail(deadline) {
         // let hours = Math.floor(allHours - days * 24)
         // seconds = seconds % 60
         // minutes = minutes % 60
-        return reformattedDeadline - new Date().getTime()
+        if (reformattedDeadline > new Date().getTime()) {
+            return reformattedDeadline - new Date().getTime()
+        } else {
+            return 0
+        }
     }
 }

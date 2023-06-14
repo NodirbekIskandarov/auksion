@@ -8,12 +8,16 @@ import { useLoad } from '../hooks/request'
 import { GET_PROPERTY_LIST } from '../tools/urls'
 import numberWithSpaces from '../tools/helpers/numberWithSpaces'
 import checkDeadline from '../tools/helpers/checkDeadline'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addProperty } from '../store/features/propertyDetailSlice'
 import { useNavigate } from 'react-router-dom'
 
 const HeadAuct = () => {
-    const { response } = useLoad({ url: GET_PROPERTY_LIST })
+    const language = useSelector((state) => state.language)
+    const { response } = useLoad(
+        { url: GET_PROPERTY_LIST.replace('en', language) },
+        [language]
+    )
     const dispatch = useDispatch()
     const navigate = useNavigate()
     return (
@@ -50,7 +54,7 @@ const HeadAuct = () => {
 
                         {response?.length
                             ? response?.map((item, index) => (
-                                  <div className="col-3 h_prod_top" key={index}>
+                                  <div className="col-4 h_prod_top" key={index}>
                                       <div className="prod_box">
                                           <div className="prod_box_img">
                                               <div className="prod_box_view">
@@ -130,6 +134,7 @@ const HeadAuct = () => {
                                                           })
                                                       )
                                                       navigate('/card')
+                                                      window.scrollTo(0, 0)
                                                   }}
                                                   className="prod_box_main_btn"
                                               >

@@ -27,6 +27,8 @@ import checkDeadline from '../tools/helpers/checkDeadline'
 import { addProperty } from '../store/features/propertyDetailSlice'
 
 const Card = () => {
+    const language = useSelector((state) => state.language)
+    const token = localStorage.getItem('token')
     const [days, setDays] = useState(0)
     const [hours, setHours] = useState(0)
     const [minutes, setMinutes] = useState(0)
@@ -35,11 +37,19 @@ const Card = () => {
     const navigate = useNavigate()
     const property = useSelector((state) => state.propertyDetail)
     const { response } = useLoad(
-        { url: GET_PROPERTY_DETAIL.replace('id', property?.id) },
-        [property?.id]
+        {
+            url: GET_PROPERTY_DETAIL.replace('id', property?.id).replace(
+                'en',
+                language
+            ),
+        },
+        [property?.id, language]
     )
 
-    const { response: propertiesList } = useLoad({ url: GET_PROPERTY_LIST })
+    const { response: propertiesList } = useLoad(
+        { url: GET_PROPERTY_LIST.replace('en', language) },
+        [language]
+    )
 
     const { download } = useDownloader()
     const [thumbsSwiper, setThumbsSwiper] = useState(null)
@@ -65,6 +75,14 @@ const Card = () => {
         setSeconds(
             Math.floor((checkDeadlineDetail(response?.deadline) / 1000) % 60)
         )
+    }
+
+    const applyProperty = () => {
+        if (token) {
+            alert('В разработке')
+        } else {
+            navigate('/login')
+        }
     }
 
     useEffect(() => {
@@ -336,16 +354,23 @@ const Card = () => {
                             </div>
                             <div className="card_info_btn mt-5">
                                 <div className="card_info_btn_top">
-                                    <button className="card_info_btn_h">
+                                    <button
+                                        onClick={applyProperty}
+                                        className="card_info_btn_h"
+                                    >
                                         {getText('card_info_btn_h_1')}
                                     </button>
-                                    <div className="card_info_btn_h_box">
-                                        <img
-                                            src="/img/prod_save_1.png"
-                                            alt=""
-                                            className={'card-info-btn-img'}
-                                        />
-                                    </div>
+                                    {token ? (
+                                        <div className="card_info_btn_h_box">
+                                            <img
+                                                src="/img/prod_save_1.png"
+                                                alt=""
+                                                className={'card-info-btn-img'}
+                                            />
+                                        </div>
+                                    ) : (
+                                        ''
+                                    )}
                                 </div>
                                 <Link to="" className="card_info_btn_soc">
                                     {getText('card_info_btn_h_2')}
@@ -472,10 +497,11 @@ const Card = () => {
                                 }}
                                 navigation={true}
                                 modules={[Navigation, Scrollbar, FreeMode]}
+                                className={'row'}
                             >
                                 {propertiesList?.length
                                     ? propertiesList?.map((item, index) => (
-                                          <SwiperSlide>
+                                          <SwiperSlide className={'col-4'}>
                                               <div key={index}>
                                                   <div className="prod_box">
                                                       <div className="prod_box_img">
@@ -569,6 +595,10 @@ const Card = () => {
                                                                   )
                                                                   navigate(
                                                                       '/card'
+                                                                  )
+                                                                  window.scrollTo(
+                                                                      0,
+                                                                      0
                                                                   )
                                                               }}
                                                               className="prod_box_main_btn"

@@ -3,20 +3,28 @@ import Stories from 'react-insta-stories'
 import { useLoad } from '../hooks/request'
 import { GET_CATALOG_DETAIL_STORY, GET_MAIN_CATALOG } from '../tools/urls'
 import CloseIcon from '../img/icons8-close-500.png'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
     const [show, setShow] = useState(false)
     const [id, setId] = useState(0)
     const [storiesArray, setStoriesArray] = useState([])
-    const { response } = useLoad({
-        url: GET_MAIN_CATALOG,
-    })
+    const language = useSelector((state) => state.language)
+    const { response } = useLoad(
+        {
+            url: GET_MAIN_CATALOG.replace('en', language),
+        },
+        [language]
+    )
 
     const { response: stories } = useLoad(
         {
-            url: GET_CATALOG_DETAIL_STORY.concat(id.toString()),
+            url: GET_CATALOG_DETAIL_STORY.concat(id.toString()).replace(
+                'en',
+                language
+            ),
         },
-        [id]
+        [id, language]
     )
 
     const filterStories = () => {

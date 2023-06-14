@@ -3,9 +3,13 @@ import React from 'react'
 import { getText } from '../locales'
 import { useLoad } from '../hooks/request'
 import { GET_CONTACT } from '../tools/urls'
+import { useSelector } from 'react-redux'
 
 const Contact = () => {
-    const { response } = useLoad({ url: GET_CONTACT })
+    const language = useSelector((state) => state.language)
+    const { response } = useLoad({ url: GET_CONTACT.replace('en', language) }, [
+        language,
+    ])
     return (
         <>
             <div className="Contact">

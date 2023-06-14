@@ -33,6 +33,7 @@ const RegisterSign = () => {
 
             if (response) {
                 navigate('/cabinet')
+                window.location.reload(true)
             } else {
                 setErrorText("Kod xato kiritildi. Iltimos tekshirib ko'ring.")
                 setError(true)

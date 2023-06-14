@@ -1,7 +1,7 @@
 import axios from 'axios'
 import humps from 'humps'
 
-export const domain = 'http://95.130.227.129/en/api/v1'
+export const domain = 'http://95.130.227.129/'
 
 //  Add Base URL and change snake_case to camelCase
 const baseAxios = axios.create({
