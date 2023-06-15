@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import InputMask from 'react-input-mask'
 import { usePostRequest } from '../hooks/request'
 import { GET_IN_TOUCH } from '../tools/urls'
-import Alert from './AlertError'
-import AlertSuccess from './AlertSuccess'
+import Alert from './alerts/AlertError'
+import AlertSuccess from './alerts/AlertSuccess'
 import { getReduxText } from '../locales'
 import { useSelector } from 'react-redux'
 
@@ -29,7 +29,9 @@ const Footer = (message) => {
 
         if (response?.id) {
             setSuccess(true)
-            setSuccessText("Siz bilan tez orada bog'lanishadi")
+            setSuccessText(
+                getReduxText('footer_get_in_touch_success', language)
+            )
         }
     }
     return (
@@ -69,12 +71,13 @@ const Footer = (message) => {
                                     onClick={(e) => {
                                         if (phone.length > 12) {
                                             getInTouch(e)
-                                            alert(phone.length)
-                                            alert(phone)
                                         } else {
                                             e.preventDefault()
                                             setErrorText(
-                                                "Telefon raqam noto'g'ri kiritildi. Iltimos qayta urinib ko'ring"
+                                                getReduxText(
+                                                    'footer_get_in_touch_error',
+                                                    language
+                                                )
                                             )
                                             setError(true)
                                         }

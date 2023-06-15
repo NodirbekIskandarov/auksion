@@ -1,5 +1,5 @@
 import React from 'react'
-import CabHead from '../../components/CabHead'
+import CabHead from '../../components/headers/CabHead'
 import ChangeCabinetComponent from './ChangeCabinetComponent'
 import { useLoad } from '../../hooks/request'
 import {

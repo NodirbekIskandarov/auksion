@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import InputMask from 'react-input-mask'
 import { usePostRequest } from '../hooks/request'
 import { LOGIN } from '../tools/urls'
-import Alert from '../components/AlertError'
+import Alert from '../components/alerts/AlertError'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {

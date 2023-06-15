@@ -1,5 +1,5 @@
 import React from 'react'
-import { getReduxText } from '../locales'
+import { getReduxText } from '../../locales'
 import { useSelector } from 'react-redux'
 
 const HeadFoot = () => {

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { activeMenu } from '../store/features/cabinetMenusSlice'
-import { getReduxText } from '../locales'
-import { setUsername } from '../store/features/userNameSlice'
+import { activeMenu } from '../../store/features/cabinetMenusSlice'
+import { getReduxText } from '../../locales'
+import { setUsername } from '../../store/features/userNameSlice'
 
 const CabHead = ({ role, response }) => {
     const dispatch = useDispatch()

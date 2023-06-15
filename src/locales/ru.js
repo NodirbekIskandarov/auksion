@@ -16,6 +16,8 @@ export const ru = {
 
     address: `Адрес`,
 
+    check_text: 'Проверить',
+
     day_1: `ДЕНЬ`,
     day_2: `ЧАС`,
     day_3: `МИНУТА`,
@@ -107,9 +109,28 @@ export const ru = {
 
     services_check_document: 'Отчет о проверке',
     services_check_rent: 'Проверить договор аренды',
-    services_define_login: '',
-    services_change_login: '',
-    services_define_evil: '',
-    services_certificates: '',
-    services_properties: '',
+    services_define_login: 'Идентификация входа',
+    services_change_login: 'Изменить логин',
+    services_define_evil: 'Проверка недобросовестного участника',
+    services_certificates: 'Реестр сертификатов',
+    services_properties: 'Свойства получателя',
+
+    footer_get_in_touch_success: 'С вами свяжутся в ближайшее время',
+    footer_get_in_touch_error:
+        'Номер телефона был введен неправильно. Пожалуйста, попробуйте еще раз',
+
+    win_stir: 'ИНН победителя',
+    lot_number: 'Номер лота',
+    check_document_description:
+        'Вы можете проверить статус выписки по QR-коду через эту форму. Для этого введите СТИР/ЖШШИР победителя и номер лота. Если статус отчета «Отменен», этот отчет в настоящее время недоступен.',
+
+    login_define_description:
+        'Примечание:\n' +
+        '\n' +
+        '- Для определения логина физическим лицам необходимо ввести свои данные ЖШШИР или юрлицам СТИР!\n' +
+        '\n' +
+        '- Если логин будет обнаружен, у вас появится личный кабинет. Восстановите существующий личный кабинет!',
+
+    stir_placeholder: 'СТИР',
+    login_define_example: 'Образец: 123 456 789 или 123 456 789 101 12',
 }

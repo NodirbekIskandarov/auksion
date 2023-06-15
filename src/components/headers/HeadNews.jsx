@@ -7,10 +7,12 @@ import 'swiper/css/navigation'
 
 import { Navigation, Pagination } from 'swiper'
 import { Link, useNavigate } from 'react-router-dom'
-import { getText } from '../locales'
+import { getReduxText } from '../../locales'
+import { useSelector } from 'react-redux'
 
 const HeadNews = () => {
     const navigate = useNavigate()
+    const language = useSelector((state) => state.language)
 
     return (
         <>
@@ -33,11 +35,15 @@ const HeadNews = () => {
                                     <div className="h_news_box">
                                         <div className="h_news_text">
                                             <div className="h_news_h">
-                                                {getText('more_text')}
+                                                {getReduxText(
+                                                    'more_text',
+                                                    language
+                                                )}
                                             </div>
                                             <div className="h_news_p">
-                                                {getText(
-                                                    'more_text_description'
+                                                {getReduxText(
+                                                    'more_text_description',
+                                                    language
                                                 )}
                                             </div>
                                         </div>
@@ -49,7 +55,7 @@ const HeadNews = () => {
                                                 }}
                                                 className="h_news_btn"
                                             >
-                                                {getText('more')}
+                                                {getReduxText('more', language)}
                                             </button>
                                         </Link>
                                     </div>
@@ -60,14 +66,17 @@ const HeadNews = () => {
                     <div className="row justify-content-center">
                         <div className="col-12">
                             <div className="h_news_count_name">
-                                {getText('h_news_count_name_1')}
+                                {getReduxText('h_news_count_name_1', language)}
                             </div>
                         </div>
                         <div className="col-2">
                             <div className="h_news_count_box">
                                 <div className="h_news_count_h">546</div>
                                 <div className="h_news_count_p">
-                                    {getText('h_news_count_name_2')}
+                                    {getReduxText(
+                                        'h_news_count_name_2',
+                                        language
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -75,7 +84,10 @@ const HeadNews = () => {
                             <div className="h_news_count_box">
                                 <div className="h_news_count_h">546</div>
                                 <div className="h_news_count_p">
-                                    {getText('h_news_count_name_3')}
+                                    {getReduxText(
+                                        'h_news_count_name_3',
+                                        language
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -83,7 +95,10 @@ const HeadNews = () => {
                             <div className="h_news_count_box">
                                 <div className="h_news_count_h">546</div>
                                 <div className="h_news_count_p">
-                                    {getText('h_news_count_name_4')}
+                                    {getReduxText(
+                                        'h_news_count_name_4',
+                                        language
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -91,7 +106,10 @@ const HeadNews = () => {
                             <div className="h_news_count_box">
                                 <div className="h_news_count_h">546</div>
                                 <div className="h_news_count_p">
-                                    {getText('h_news_count_name_5')}
+                                    {getReduxText(
+                                        'h_news_count_name_5',
+                                        language
+                                    )}
                                 </div>
                             </div>
                         </div>

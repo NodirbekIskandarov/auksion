@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import ReactCodeInput from 'react-code-input'
 import { usePostRequest } from '../hooks/request'
 import { LOGIN_VERIFY } from '../tools/urls'
-import Alert from '../components/AlertError'
+import Alert from '../components/alerts/AlertError'
 
 const RegisterSign = () => {
     const navigate = useNavigate()

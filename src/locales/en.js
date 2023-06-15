@@ -16,6 +16,8 @@ export const en = {
 
     address: `Address`,
 
+    check_text: 'Check',
+
     day_1: `DAY`,
     day_2: `HOUR'`,
     day_3: `MINUTE`,
@@ -105,11 +107,30 @@ export const en = {
     head_foot_description:
         "A special and stylish application for your smartphone. Download and participate in the auction on your mobile phone. And don't forget to update the app often to enjoy the latest features!",
 
-    services_check_document: '',
-    services_check_rent: '',
-    services_define_login: '',
-    services_change_login: '',
-    services_define_evil: '',
-    services_certificates: '',
-    services_properties: '',
+    services_check_document: 'Inspection report',
+    services_check_rent: 'Check the lease agreement',
+    services_define_login: 'Login identification',
+    services_change_login: 'Change login',
+    services_define_evil: 'Checking a dishonest participant',
+    services_certificates: 'Register of Certificates',
+    services_properties: 'Recipient properties',
+
+    footer_get_in_touch_success: 'You will be contacted shortly',
+    footer_get_in_touch_error:
+        'The phone number was entered incorrectly. Please try again',
+
+    win_stir: 'TIN of the winner',
+    lot_number: "Lot's number",
+    check_document_description:
+        'You can check the status of the QR-code statement through this form. To do this, enter the STIR/JSHSHIR of the winner and the lot number. If the report status is "Cancelled", this report is not currently available.',
+
+    login_define_description:
+        'Note:\n' +
+        '\n' +
+        '- To determine the login, individuals need to enter their JSHSHIR or legal entities STIR data!\n' +
+        '\n' +
+        '- If the login is detected, you will have a personal cabinet. Restore your existing personal cabinet!',
+
+    stir_placeholder: 'TIN',
+    login_define_example: 'Sample: 123 456 789 or 123 456 789 101 12',
 }

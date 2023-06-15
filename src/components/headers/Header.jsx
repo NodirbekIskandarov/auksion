@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Stories from 'react-insta-stories'
-import { useLoad } from '../hooks/request'
-import { GET_CATALOG_DETAIL_STORY, GET_MAIN_CATALOG } from '../tools/urls'
-import CloseIcon from '../img/icons8-close-500.png'
+import { useLoad } from '../../hooks/request'
+import { GET_CATALOG_DETAIL_STORY, GET_MAIN_CATALOG } from '../../tools/urls'
 import { useSelector } from 'react-redux'
+import CloseIcon from '../../img/close-icon.svg'
 
 const Header = () => {
     const [show, setShow] = useState(false)
@@ -32,7 +32,7 @@ const Header = () => {
         stories?.forEach((item) => {
             newArray.push({ url: item.video })
         })
-
+        console.log(newArray, stories.length)
         setStoriesArray(newArray)
     }
 

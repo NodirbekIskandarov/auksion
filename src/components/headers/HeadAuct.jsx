@@ -1,15 +1,15 @@
 import React from 'react'
-import { getText } from '../locales'
+import { getText } from '../../locales'
 
 import 'swiper/css'
 import 'swiper/css/grid'
 import 'swiper/css/pagination'
-import { useLoad } from '../hooks/request'
-import { GET_PROPERTY_LIST } from '../tools/urls'
-import numberWithSpaces from '../tools/helpers/numberWithSpaces'
-import checkDeadline from '../tools/helpers/checkDeadline'
+import { useLoad } from '../../hooks/request'
+import { GET_PROPERTY_LIST } from '../../tools/urls'
+import numberWithSpaces from '../../tools/helpers/numberWithSpaces'
+import checkDeadline from '../../tools/helpers/checkDeadline'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProperty } from '../store/features/propertyDetailSlice'
+import { addProperty } from '../../store/features/propertyDetailSlice'
 import { useNavigate } from 'react-router-dom'
 
 const HeadAuct = () => {

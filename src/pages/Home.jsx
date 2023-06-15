@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from '../components/Header'
-import HeadAuct from '../components/HeadAuct'
-import HeadNews from '../components/HeadNews'
-import HeadMessage from '../components/HeadMessage'
-import HeadFoot from '../components/HeadFoot'
+import Header from '../components/headers/Header'
+import HeadAuct from '../components/headers/HeadAuct'
+import HeadNews from '../components/headers/HeadNews'
+import HeadMessage from '../components/headers/HeadMessage'
+import HeadFoot from '../components/headers/HeadFoot'
 
 const Home = () => {
     return (

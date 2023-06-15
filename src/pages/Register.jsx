@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Alert from '../components/AlertError'
-import PhysicalPersonRegister from '../components/PhysicalPersonRegister'
-import LegalEntityRegister from '../components/LegalEntityRegister'
+import Alert from '../components/alerts/AlertError'
+import PhysicalPersonRegister from '../components/register/PhysicalPersonRegister'
+import LegalEntityRegister from '../components/register/LegalEntityRegister'
 
 const Register = () => {
     const [userType, setUserType] = useState(false)

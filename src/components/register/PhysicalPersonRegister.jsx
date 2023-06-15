@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useLoad, usePostRequest } from '../hooks/request'
+import { useLoad, usePostRequest } from '../../hooks/request'
 import {
     CREATE_PHYSICAL_USER,
     GET_ACCOUNTS_DISTRICT_LIST,
     GET_ACCOUNTS_REGIONS,
     REGISTER_CONFIRM,
     REGISTER_USER,
-} from '../tools/urls'
+} from '../../tools/urls'
 import { useSelector } from 'react-redux'
 
 export default function PhysicalPersonRegister({

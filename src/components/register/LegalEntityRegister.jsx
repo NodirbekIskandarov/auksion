@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { usePostRequest } from '../hooks/request'
+import { usePostRequest } from '../../hooks/request'
 import {
     CREATE_LEGAL_USER,
     REGISTER_CONFIRM,
     REGISTER_USER,
-} from '../tools/urls'
+} from '../../tools/urls'
 
 export default function LegalEntityRegister({
     setErrorText,
