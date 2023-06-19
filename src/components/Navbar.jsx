@@ -4,6 +4,10 @@ import { LANGUAGE } from '../tools/constant'
 import { getText } from '../locales'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeLanguage } from '../store/features/languageSlice'
+import Filter from './Filter'
+import FilterActiveIcon from '../img/svgs/filter-icon.svg'
+import HamburgerIcon from '../img/svgs/burger-menu.svg'
+import MobileMenu from './mobile/MobileMenu'
 
 const Navbar = () => {
     const location = useLocation()
@@ -12,7 +16,9 @@ const Navbar = () => {
     const language = useSelector((state) => state.language)
     const inn = useSelector((state) => state.setUsername)
     const [toggle, setToggle] = useState(false)
+    const [filterToggle, setFilterToggle] = useState(false)
     const [token, setToken] = useState()
+    const [burgerToggle, setBurgerToggle] = useState(false)
     const languageHandler = (e) => {
         localStorage.setItem(LANGUAGE, e.target.value)
         dispatch(changeLanguage(e.target.value))
@@ -38,7 +44,7 @@ const Navbar = () => {
             <div className="Navbar">
                 <div className="container">
                     <div className="nav_1">
-                        <div className="row justify-content-between w-100">
+                        <div className="row justify-content-between w-100 pt-2">
                             <div
                                 onClick={() => navigate('/')}
                                 className="col-3 d-flex align-items-center pointer"
@@ -49,7 +55,15 @@ const Navbar = () => {
                                     className="logo"
                                 />
                             </div>
-                            <div className="col-5 d-flex align-items-center gap-3">
+
+                            <div
+                                className={'col-1 pointer hamburger'}
+                                onClick={() => setBurgerToggle(!burgerToggle)}
+                            >
+                                <img src={HamburgerIcon} alt={'hamburger'} />
+                            </div>
+
+                            <div className="col-5 gap-3 desktop-search-container">
                                 <div className="nav_inp_box">
                                     <img
                                         className="nav_inp_icon_1 pointer"
@@ -57,9 +71,16 @@ const Navbar = () => {
                                         alt=""
                                     />
                                     <img
+                                        onClick={() =>
+                                            setFilterToggle(!filterToggle)
+                                        }
                                         className="nav_inp_icon_2 pointer"
-                                        src="/img/nav_inp_2.png"
-                                        alt=""
+                                        src={
+                                            filterToggle
+                                                ? FilterActiveIcon
+                                                : '/img/nav_inp_2.png'
+                                        }
+                                        alt="filter"
                                     />
                                     <input
                                         placeholder={getText('nav_8')}
@@ -72,8 +93,11 @@ const Navbar = () => {
                                     {getText('nav_8')}
                                 </button>
                             </div>
-                            {token === null ? (
-                                <div className="col-3 d-flex align-items-center justify-content-end gap-3">
+
+                            {filterToggle ? <Filter /> : ''}
+
+                            {!token ? (
+                                <div className="col-3 gap-3 desktop-nav-buttons-container">
                                     <Link
                                         to="/registration"
                                         className="nav_btn_1"
@@ -87,10 +111,11 @@ const Navbar = () => {
                             ) : (
                                 <div
                                     className={
-                                        'col-3 d-flex flex-row align-items-center justify-content-end gap-3'
+                                        'col-3 gap-3' +
+                                        ' desktop-profile-toggle-container'
                                     }
                                 >
-                                    {!toggle ? (
+                                    {!toggle && token ? (
                                         <div
                                             className={
                                                 'col-3 d-flex flex-row align-items-center justify-content-end gap-3'
@@ -172,6 +197,49 @@ const Navbar = () => {
                                     )}
                                 </div>
                             )}
+
+                            {burgerToggle ? (
+                                <MobileMenu
+                                    location={location}
+                                    language={language}
+                                    languageHandler={languageHandler}
+                                />
+                            ) : (
+                                ''
+                            )}
+
+                            <div className={'mobile-search-container'}>
+                                <div className="col-12 d-flex align-items-center gap-2 mb-3">
+                                    <div className="nav_inp_box">
+                                        <img
+                                            className="nav_inp_icon_1 pointer"
+                                            src="/img/nav_inp_1.png"
+                                            alt=""
+                                        />
+                                        <img
+                                            onClick={() =>
+                                                setFilterToggle(!filterToggle)
+                                            }
+                                            className="nav_inp_icon_2 pointer"
+                                            src={
+                                                filterToggle
+                                                    ? FilterActiveIcon
+                                                    : '/img/nav_inp_2.png'
+                                            }
+                                            alt="filter"
+                                        />
+                                        <input
+                                            placeholder={getText('nav_8')}
+                                            type="text"
+                                            name=""
+                                            id=""
+                                        />
+                                    </div>
+                                    <button className="nav_inp_btn">
+                                        {getText('nav_8')}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -240,6 +308,7 @@ const Navbar = () => {
                                             className={'social-icon'}
                                         />
                                     </a>
+
                                     <a href="" className="nav_soc_a">
                                         <img
                                             src="/img/icon_telegram.png"
@@ -247,6 +316,7 @@ const Navbar = () => {
                                             className={'social-icon'}
                                         />
                                     </a>
+
                                     <a href="" className="nav_soc_a">
                                         <img
                                             src="/img/icon_facebook.png"

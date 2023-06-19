@@ -24,9 +24,11 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "react-use-downloader": "^1.2.4",
+    "react-use-websocket": "^4.3.1",
     "reactstrap": "^9.1.9",
     "swiper": "^9.2.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "websocket": "^1.0.34"
   },
   "scripts": {
     "start": "react-scripts start",

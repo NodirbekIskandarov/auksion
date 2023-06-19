@@ -14,6 +14,7 @@ import NewsVideoPlayer from '../player/NewsVideoPlayer'
 const HeadMessage = () => {
     const [moviePlay, setMoviePlay] = useState(true)
     const navigate = useNavigate()
+    const width = document.getElementById('root').clientWidth
     const language = useSelector((state) => state.language)
     const { response } = useLoad(
         {
@@ -33,7 +34,13 @@ const HeadMessage = () => {
 
                         <Swiper
                             spaceBetween={50}
-                            slidesPerView={3}
+                            slidesPerView={
+                                width > 540 && width < 768
+                                    ? 2
+                                    : width < 540
+                                    ? 1
+                                    : 3
+                            }
                             pagination={true}
                             modules={[Pagination]}
                             style={{ width: '100%' }}

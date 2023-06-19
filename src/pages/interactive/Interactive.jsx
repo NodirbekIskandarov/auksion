@@ -26,12 +26,18 @@ const Interactive = () => {
                     <div className="row">
                         <div className="col-12">
                             <Nav tabs className={'row mx-1'}>
-                                <NavItem className="d-flex justify-content-between">
+                                <NavItem
+                                    className="d-flex justify-content-between"
+                                    style={{ padding: 0 }}
+                                >
                                     <NavLink
                                         id="1"
-                                        className={classnames({
-                                            active: activeTab === '1',
-                                        })}
+                                        className={classnames(
+                                            {
+                                                active: activeTab === '1',
+                                            },
+                                            'py-3'
+                                        )}
                                         onClick={() => {
                                             toggle('1')
                                         }}

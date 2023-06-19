@@ -91,71 +91,83 @@ const Footer = (message) => {
                                 </button>
                             </form>
                         </div>
-                        <div className="col-8 d-flex align-items-center justify-content-between">
+                        <div className="col-lg-8 col-md-8 col-12 d-flex align-items-center justify-content-between">
                             <div
-                                className="foot_link pointer"
-                                onClick={() => {
-                                    navigate('/')
-                                    window.scrollTo(0, 0)
-                                }}
+                                className={
+                                    'd-flex flex-row justify-content-between align-items-center flex-wrap w-100'
+                                }
                             >
-                                {getReduxText('footer_lots_nav', language)}
-                            </div>
+                                <div
+                                    className="foot_link pointer"
+                                    onClick={() => {
+                                        navigate('/')
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >
+                                    {getReduxText('footer_lots_nav', language)}
+                                </div>
 
-                            <div
-                                className="foot_link pointer"
-                                onClick={() => {
-                                    navigate('/about')
-                                    window.scrollTo(0, 0)
-                                }}
-                            >
-                                {getReduxText(
-                                    'footer_about_auction_nav',
-                                    language
-                                )}
-                            </div>
+                                <div
+                                    className="foot_link pointer"
+                                    onClick={() => {
+                                        navigate('/about')
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >
+                                    {getReduxText(
+                                        'footer_about_auction_nav',
+                                        language
+                                    )}
+                                </div>
 
-                            <div
-                                className="foot_link pointer"
-                                onClick={() => {
-                                    navigate('/Interactive')
-                                    window.scrollTo(0, 0)
-                                }}
-                            >
-                                {getReduxText('footer_services_nav', language)}
-                            </div>
+                                <div
+                                    className="foot_link pointer"
+                                    onClick={() => {
+                                        navigate('/Interactive')
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >
+                                    {getReduxText(
+                                        'footer_services_nav',
+                                        language
+                                    )}
+                                </div>
 
-                            <div
-                                className="foot_link pointer"
-                                onClick={() => {
-                                    navigate('/')
-                                    window.scrollTo(0, 0)
-                                }}
-                            >
-                                {getReduxText(
-                                    'footer_about_center_nav',
-                                    language
-                                )}
-                            </div>
+                                <div
+                                    className="foot_link pointer"
+                                    onClick={() => {
+                                        navigate('/')
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >
+                                    {getReduxText(
+                                        'footer_about_center_nav',
+                                        language
+                                    )}
+                                </div>
 
-                            <div
-                                className="foot_link pointer"
-                                onClick={() => {
-                                    navigate('/news')
-                                    window.scrollTo(0, 0)
-                                }}
-                            >
-                                {getReduxText('footer_news_nav', language)}
-                            </div>
+                                <div
+                                    className="foot_link pointer"
+                                    onClick={() => {
+                                        navigate('/news')
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >
+                                    {getReduxText('footer_news_nav', language)}
+                                </div>
 
-                            <div
-                                className="foot_link pointer"
-                                onClick={() => {
-                                    navigate('/contact')
-                                    window.scrollTo(0, 0)
-                                }}
-                            >
-                                {getReduxText('footer_contact_nav', language)}
+                                <div
+                                    className="foot_link pointer"
+                                    onClick={() => {
+                                        navigate('/contact')
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >
+                                    {getReduxText(
+                                        'footer_contact_nav',
+                                        language
+                                    )}
+                                </div>
                             </div>
 
                             {error ? (

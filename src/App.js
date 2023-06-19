@@ -16,6 +16,8 @@ import { Provider } from 'react-redux'
 import { store } from './store/store'
 import Login from './pages/Login'
 import NewsDetail from './pages/news/NewsDetail'
+import PrivateRoutes from './components/PrivateRoutes'
+import WebSocketPage from './pages/socket/WebSocketPage'
 
 function App() {
     return (
@@ -38,9 +40,14 @@ function App() {
                         path="/registration-sign-in"
                         element={<RegisterSignIn />}
                     />
-                    <Route path="/cabinet" element={<Cabinet />} />
+
+                    <Route element={<PrivateRoutes />}>
+                        <Route path="/cabinet" element={<Cabinet />} />
+                    </Route>
                     <Route path="/login" element={<Login />} />
                     <Route path="/news-detail" element={<NewsDetail />} />
+
+                    <Route path="/socket" element={<WebSocketPage />} />
                 </Routes>
                 <Footer />
             </HashRouter>

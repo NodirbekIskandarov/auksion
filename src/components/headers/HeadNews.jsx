@@ -32,8 +32,8 @@ const HeadNews = () => {
                                 style={{ height: '100%', opacity: 1 }}
                             >
                                 <SwiperSlide>
-                                    <div className="h_news_box">
-                                        <div className="h_news_text">
+                                    <div className="h_news_box row">
+                                        <div className="h_news_text col-lg-9 col-md-6 col-12">
                                             <div className="h_news_h">
                                                 {getReduxText(
                                                     'more_text',
@@ -47,7 +47,10 @@ const HeadNews = () => {
                                                 )}
                                             </div>
                                         </div>
-                                        <Link className="h_news_btn_link" to="">
+                                        <Link
+                                            className="h_news_btn_link col-lg-3 col-md-6 col-12 d-flex justify-content-center"
+                                            to=""
+                                        >
                                             <button
                                                 onClick={() => {
                                                     navigate('/registration')
@@ -69,47 +72,54 @@ const HeadNews = () => {
                                 {getReduxText('h_news_count_name_1', language)}
                             </div>
                         </div>
-                        <div className="col-2">
-                            <div className="h_news_count_box">
-                                <div className="h_news_count_h">546</div>
-                                <div className="h_news_count_p">
-                                    {getReduxText(
-                                        'h_news_count_name_2',
-                                        language
-                                    )}
+
+                        <div
+                            className={
+                                'row w-100 d-flex flex-row justify-content-center'
+                            }
+                        >
+                            <div className="col">
+                                <div className="h_news_count_box">
+                                    <div className="h_news_count_h">546</div>
+                                    <div className="h_news_count_p">
+                                        {getReduxText(
+                                            'h_news_count_name_2',
+                                            language
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-2">
-                            <div className="h_news_count_box">
-                                <div className="h_news_count_h">546</div>
-                                <div className="h_news_count_p">
-                                    {getReduxText(
-                                        'h_news_count_name_3',
-                                        language
-                                    )}
+                            <div className="col">
+                                <div className="h_news_count_box">
+                                    <div className="h_news_count_h">546</div>
+                                    <div className="h_news_count_p">
+                                        {getReduxText(
+                                            'h_news_count_name_3',
+                                            language
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-2">
-                            <div className="h_news_count_box">
-                                <div className="h_news_count_h">546</div>
-                                <div className="h_news_count_p">
-                                    {getReduxText(
-                                        'h_news_count_name_4',
-                                        language
-                                    )}
+                            <div className="col">
+                                <div className="h_news_count_box">
+                                    <div className="h_news_count_h">546</div>
+                                    <div className="h_news_count_p">
+                                        {getReduxText(
+                                            'h_news_count_name_4',
+                                            language
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-2">
-                            <div className="h_news_count_box">
-                                <div className="h_news_count_h">546</div>
-                                <div className="h_news_count_p">
-                                    {getReduxText(
-                                        'h_news_count_name_5',
-                                        language
-                                    )}
+                            <div className="col">
+                                <div className="h_news_count_box">
+                                    <div className="h_news_count_h">546</div>
+                                    <div className="h_news_count_p">
+                                        {getReduxText(
+                                            'h_news_count_name_5',
+                                            language
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
