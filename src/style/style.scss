@@ -411,6 +411,15 @@ html {
         align-items: center;
         justify-content: center;
 
+        @media(max-width: 768px) {
+            overflow-x: scroll;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            padding-top: 20px;
+            display: flex;
+            justify-content: left;
+        }
+
         .head_auct_cat_box {
             height: 45px;
             background: #373737;
@@ -1590,6 +1599,19 @@ html {
         border: none;
         background-color: #373737 !important;
         border-radius: 8px;
+
+        @media (max-width: 992px) {
+            border: none;
+            background-color: #373737 !important;
+            border-radius: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            justify-content: left;
+        }
     }
 
     .nav-item {
@@ -1629,7 +1651,10 @@ html {
         letter-spacing: -0.001em;
         color: #FFFFFF;
 
-
+        @media (max-width: 992px) {
+            font-size: 12px;
+            line-height: 14px;
+        }
 
         &.active {
             background: #1AA37A;
@@ -1639,6 +1664,12 @@ html {
             line-height: 22px;
             letter-spacing: -0.001em;
             color: #F8F9FB;
+            -webkit-text-fill-color: #495057;
+
+            @media (max-width: 992px) {
+                font-size: 12px;
+                line-height: 14px;
+            }
         }
     }
 
@@ -1655,6 +1686,11 @@ html {
         text-align: center;
         letter-spacing: -0.02em;
         color: #FFFFFF;
+
+        @media (max-width: 992px) {
+            font-size: 24px;
+            line-height: 28px;
+        }
     }
 
     .inter_tab_box {
@@ -1663,7 +1699,6 @@ html {
         border: 2px solid rgba(255, 255, 255, 0.06);
         backdrop-filter: blur(8px);
         border-radius: 8px;
-        width: 1100px;
         margin: auto;
 
 
@@ -1681,13 +1716,24 @@ html {
                 color: #fff;
                 font-size: 18px;
                 line-height: 24px;
+
+                @media (max-width: 992px) {
+                    font-size: 14px;
+                    line-height: 16px;
+                    height: 44px;
+                }
+
+                @media (max-width: 768px) {
+                    font-size: 10px;
+                    line-height: 12px;
+                    height: 38px;
+                }
             }
 
             button {
                 height: 64px;
                 border: none;
-                margin-top: 24px;
-                //width: 100%;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -1698,15 +1744,33 @@ html {
                 font-size: 18px;
                 line-height: 31px;
                 color: #FFFFFF;
+
+                @media (max-width: 992px) {
+                    font-size: 14px;
+                    line-height: 16px;
+                    height: 44px;
+                }
+
+                @media (max-width: 768px) {
+                    font-size: 10px;
+                    line-height: 12px;
+                    height: 38px;
+                }
             }
 
             .inter_btn_search {
-                //width: initial;
-                margin-top: 0;
                 padding: 0 18px;
 
                 img {
                     margin-right: 10px;
+
+                    @media (max-width: 992px){
+                        transform: scale(0.7);
+                    }
+                }
+
+                @media (max-width: 992px){
+                    margin-top: 10px;
                 }
             }
         }
@@ -1720,6 +1784,16 @@ html {
             font-size: 18px;
             line-height: 26px;
             color: #E2E2E2;
+
+            @media (max-width: 992px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 10px;
+                line-height: 12px;
+            }
 
             span {
                 font-weight: 600;
@@ -1738,6 +1812,16 @@ html {
             line-height: 26px;
             color: #E2E2E2;
 
+            @media (max-width: 992px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 10px;
+                line-height: 12px;
+            }
+
             span {
                 font-weight: 600;
                 margin-bottom: 10px;
@@ -1753,6 +1837,16 @@ html {
             letter-spacing: 0.01em;
             color: #E2E2E2;
             opacity: 0.7;
+
+            @media (max-width: 992px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 10px;
+                line-height: 12px;
+            }
         }
     }
 }
@@ -2056,6 +2150,7 @@ html {
         align-items: center;
 
         .cab_mes_inp_box {
+            margin-top: 5px;
             input {
                 margin-left: 20px;
                 outline: none;
@@ -2073,6 +2168,7 @@ html {
         }
 
         .cab_mes_inp_box_2 {
+            margin-top: 5px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -2102,6 +2198,7 @@ html {
             align-items: center;
             letter-spacing: -0.001em;
             color: #373737;
+            margin-top: 5px;
 
             img {
                 margin-right: 5px;
@@ -2402,10 +2499,10 @@ html {
 
             .log_main_type {
                 padding: 16px 24px;
-                display: flex;
+                //display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 33%;
+                //width: 33%;
 
                 .inp_btn {
                     cursor: pointer;
@@ -2510,6 +2607,4 @@ html {
             border-radius: 8px;
         }
     }
-
-
 }

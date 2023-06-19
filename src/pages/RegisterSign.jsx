@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ReactCodeInput from 'react-code-input'
 import { usePostRequest } from '../hooks/request'
-import { LOGIN_VERIFY } from '../tools/urls'
 import Alert from '../components/alerts/AlertError'
+import { LOGIN_VERIFY } from '../tools/urls'
 
 const RegisterSign = () => {
     const navigate = useNavigate()
@@ -20,7 +20,7 @@ const RegisterSign = () => {
         if (code?.length === 6) {
             const { response } = await loginVerifyRequest.request({
                 data: {
-                    phone: state?.phone,
+                    phone: state?.phone.replace('+', ''),
                     code,
                     password: '12345678',
                 },
@@ -93,6 +93,7 @@ const RegisterSign = () => {
                                                 backdropFilter: 'blur(27.2187)',
                                                 borderRadius: 8,
                                                 marginLeft: 20,
+                                                marginTop: 5,
                                             }}
                                             value={code}
                                             onChange={setCode}

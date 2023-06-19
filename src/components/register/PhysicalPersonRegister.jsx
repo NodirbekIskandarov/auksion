@@ -78,7 +78,7 @@ export default function PhysicalPersonRegister({
     const registerFirstStep = async () => {
         const { response, error } = await registerFirstStepRequest.request({
             data: {
-                phone,
+                phone: phone.replace('+', ''),
             },
         })
         if (response) {
@@ -191,8 +191,8 @@ export default function PhysicalPersonRegister({
     }
     return (
         <div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*FIO</div>
                         <input
@@ -203,7 +203,8 @@ export default function PhysicalPersonRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Fuqoroligi</div>
                         <select
@@ -216,7 +217,8 @@ export default function PhysicalPersonRegister({
                         </select>
                     </div>
                 </div>
-                <div className="log_main_type ">
+
+                <div className="log_main_type col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Stir</div>
                         <input
@@ -228,8 +230,9 @@ export default function PhysicalPersonRegister({
                     </div>
                 </div>
             </div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Tug‘ilgan sana</div>
                         <input
@@ -242,7 +245,7 @@ export default function PhysicalPersonRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type ">
+                <div className="log_main_type col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Jinsi</div>
                         <select
@@ -256,7 +259,7 @@ export default function PhysicalPersonRegister({
                     </div>
                 </div>
 
-                <div className="log_main_type">
+                <div className="log_main_type col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*JSHSHIR</div>
                         <input
@@ -270,8 +273,9 @@ export default function PhysicalPersonRegister({
                     </div>
                 </div>
             </div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">
                             *Pasport seriyasi va raqami
@@ -286,7 +290,7 @@ export default function PhysicalPersonRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Pasport berilgan sana</div>
                         <input
@@ -299,7 +303,7 @@ export default function PhysicalPersonRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Hudud/viloyat nomi</div>
                         <select
@@ -319,8 +323,9 @@ export default function PhysicalPersonRegister({
                     </div>
                 </div>
             </div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                     <div className="inp_box">
                         <div className="inp_name">*Tuman nomi</div>
                         <select
@@ -346,7 +351,7 @@ export default function PhysicalPersonRegister({
                     </div>
                 </div>
 
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12 d-flex flex-row">
                     <div className="inp_box">
                         <div className="inp_name">*Telefon</div>
                         <input
@@ -358,12 +363,12 @@ export default function PhysicalPersonRegister({
                     </div>
                     <div
                         onClick={() => validateRegister()}
-                        className="inp_btn active"
+                        className="inp_btn active text-center"
                     >
                         SMS yuborish
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-lg-4 col-12 d-flex flex-row">
                     <div className="inp_box">
                         <div className="inp_name">*SMS kod</div>
                         <input

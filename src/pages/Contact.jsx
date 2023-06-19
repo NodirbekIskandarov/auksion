@@ -22,7 +22,7 @@ const Contact = () => {
                                           {getText('con_1')}
                                       </div>
                                   </div>
-                                  <div className="col-3">
+                                  <div className="col-lg-3 mt-2">
                                       <div className="con_box">
                                           <img
                                               src="/img/icon_con_1.png"
@@ -37,7 +37,8 @@ const Contact = () => {
                                           </div>
                                       </div>
                                   </div>
-                                  <div className="col-3">
+
+                                  <div className="col-lg-3 mt-2">
                                       <div className="con_box">
                                           <img
                                               src="/img/icon_con_2.png"
@@ -52,7 +53,8 @@ const Contact = () => {
                                           </div>
                                       </div>
                                   </div>
-                                  <div className="col-3">
+
+                                  <div className="col-lg-3 mt-2">
                                       <div className="con_box">
                                           <img
                                               src="/img/icon_con_3.png"
@@ -66,7 +68,7 @@ const Contact = () => {
                                           </div>
                                       </div>
                                   </div>
-                                  <div className="col-3">
+                                  <div className="col-lg-3 mt-2">
                                       <div className="con_box">
                                           <img
                                               src="/img/icon_con_4.png"

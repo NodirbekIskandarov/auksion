@@ -59,7 +59,11 @@ export default function NewsDetail() {
                 </div>
             ) : (
                 <div className={'d-flex flex-row justify-content-center mt-3'}>
-                    <img src={state?.image} alt="" />
+                    <img
+                        src={state?.image}
+                        alt=""
+                        className={'news-detail-image'}
+                    />
                 </div>
             )}
 

@@ -13,12 +13,12 @@ export default function Filter() {
 
                 <div className={'text-center filter-title'}>Filter</div>
 
-                <div
-                    className={
-                        'd-flex flex-row justify-content-between align-items-start flex-wrap pt-4'
-                    }
-                >
-                    <div className={'d-flex flex-column w-50'}>
+                <div className={'row pt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>
                             Lot raqami yoki mol-mulk nomi
                         </label>
@@ -28,7 +28,11 @@ export default function Filter() {
                         />
                     </div>
 
-                    <div className={'d-flex flex-column w-50'}>
+                    <div
+                        className={
+                            'd-flex flex-column col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>Viloyat</label>
                         <select
                             className={'filter-select'}
@@ -39,7 +43,11 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div className={'d-flex flex-column w-50 mt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column mt-4 col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>Tuman</label>
                         <select
                             className={'filter-select'}
@@ -50,7 +58,11 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div className={'d-flex flex-column w-50 mt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column mt-4 col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>Savdo kuni</label>
                         <input
                             type={'date'}
@@ -59,7 +71,11 @@ export default function Filter() {
                         />
                     </div>
 
-                    <div className={'d-flex flex-column w-50 mt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column mt-4 col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>To’lov shakli</label>
                         <select
                             className={'filter-select'}
@@ -70,7 +86,11 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div className={'d-flex flex-column w-50 mt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column mt-4 col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>Ob’yekt turi</label>
                         <select
                             className={'filter-select'}
@@ -81,7 +101,11 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div className={'d-flex flex-column w-50 mt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column mt-4 col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>
                             Savdo o’tkazish turi
                         </label>
@@ -94,7 +118,11 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div className={'d-flex flex-column w-50 mt-4'}>
+                    <div
+                        className={
+                            'd-flex flex-column mt-4 col-12 col-lg-6 col-md-6'
+                        }
+                    >
                         <label className={'filter-label'}>
                             Savdoni o’tkazish uslubi
                         </label>
@@ -110,7 +138,7 @@ export default function Filter() {
 
                 <div
                     className={
-                        'd-flex flex-row align-items-center justify-content-end pe-2'
+                        'd-flex flex-row align-items-center justify-content-end pe-2 pb-3'
                     }
                 >
                     <button className="filter-search-button">

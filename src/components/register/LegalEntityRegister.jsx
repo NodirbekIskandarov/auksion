@@ -47,7 +47,7 @@ export default function LegalEntityRegister({
     const registerFirstStep = async () => {
         const { response, error } = await registerFirstStepRequest.request({
             data: {
-                phone,
+                phone: phone.replace('+', ''),
             },
         })
         if (response) {
@@ -159,8 +159,8 @@ export default function LegalEntityRegister({
 
     return (
         <div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*INN</div>
                         <input
@@ -171,7 +171,8 @@ export default function LegalEntityRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*Tashkilot nomi</div>
                         <input
@@ -182,7 +183,8 @@ export default function LegalEntityRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type ">
+
+                <div className="log_main_type col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*Tashkilot rahbari FIO</div>
                         <input
@@ -194,8 +196,9 @@ export default function LegalEntityRegister({
                     </div>
                 </div>
             </div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">
                             *Tashkilot ro'yxatdan o'tgan sana
@@ -208,7 +211,7 @@ export default function LegalEntityRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*MFO</div>
                         <input
@@ -220,7 +223,7 @@ export default function LegalEntityRegister({
                     </div>
                 </div>
 
-                <div className="log_main_type">
+                <div className="log_main_type col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*Manzil</div>
                         <input
@@ -232,8 +235,9 @@ export default function LegalEntityRegister({
                     </div>
                 </div>
             </div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*Bank filiali</div>
                         <input
@@ -244,7 +248,7 @@ export default function LegalEntityRegister({
                         />
                     </div>
                 </div>
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                     <div className="inp_box">
                         <div className="inp_name">*Bank hisob raqami</div>
                         <input
@@ -256,7 +260,7 @@ export default function LegalEntityRegister({
                     </div>
                 </div>
 
-                <div className="log_main_type log_main_type_2">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4 d-flex flex-row">
                     <div className="inp_box">
                         <div className="inp_name">*Telefon</div>
                         <input
@@ -268,14 +272,14 @@ export default function LegalEntityRegister({
                     </div>
                     <div
                         onClick={() => validateRegister()}
-                        className="inp_btn active"
+                        className="inp_btn active text-center"
                     >
                         SMS yuborish
                     </div>
                 </div>
             </div>
-            <div className="log_main">
-                <div className="log_main_type log_main_type_2">
+            <div className="log_main row">
+                <div className="log_main_type log_main_type_2 col-12 col-lg-4 d-flex flex-row">
                     <div className="inp_box">
                         <div className="inp_name">*SMS kod</div>
                         <input
@@ -298,9 +302,9 @@ export default function LegalEntityRegister({
                         <img src="/img/icon_correct.png" alt="" />
                     </div>
                 </div>
-                <div className="log_main_type" />
+                <div className="log_main_type col-12 col-lg-4" />
 
-                <div className="log_main_type" />
+                <div className="log_main_type col-12 col-lg-4" />
             </div>
             <div className="d-flex align-items-center justify-content-center">
                 <div

@@ -12,28 +12,37 @@ export default function CheckLease() {
             </div>
             <div className="inter_tab_box">
                 <form className="inter_tab_inp_box">
-                    <div className="d-flex gap-4">
-                        <input
-                            placeholder={getReduxText('win_stir', language)}
-                            type="text"
-                            name=""
-                            id=""
-                        />
-                        <input
-                            placeholder={getReduxText('lot_number', language)}
-                            type="text"
-                            name=""
-                            id=""
-                        />
-                    </div>
-                    <div className={'row'}>
-                        <div className={'col-3'} />
+                    <div className="row">
+                        <div className={'col-12 col-lg-6 col-md-12 mt-2'}>
+                            <input
+                                placeholder={getReduxText('win_stir', language)}
+                                type="text"
+                                name=""
+                                id=""
+                            />
+                        </div>
 
-                        <button className={'col-6'}>
+                        <div className={'col-12 col-lg-6 col-md-12 mt-2'}>
+                            <input
+                                placeholder={getReduxText(
+                                    'lot_number',
+                                    language
+                                )}
+                                type="text"
+                                name=""
+                                id=""
+                            />
+                        </div>
+                    </div>
+
+                    <div className={'row px-3 mt-3'}>
+                        <div className={'col-2 col-lg-3'} />
+
+                        <button className={'col-8 col-lg-6'}>
                             {getReduxText('check_text', language)}
                         </button>
 
-                        <div className={'col-3'} />
+                        <div className={'col-2 col-lg-3'} />
                     </div>
                 </form>
                 <div className="inter_tab_info">

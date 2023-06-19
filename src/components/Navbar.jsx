@@ -252,7 +252,7 @@ const Navbar = () => {
                                     to="/"
                                     className={`nav_a ${
                                         location.pathname === '/'
-                                            ? 'active'
+                                            ? 'nav-active'
                                             : ''
                                     }`}
                                 >
@@ -262,7 +262,7 @@ const Navbar = () => {
                                     to="/about"
                                     className={`nav_a ${
                                         location.pathname === '/about'
-                                            ? 'active'
+                                            ? 'nav-active'
                                             : ''
                                     }`}
                                 >
@@ -272,7 +272,7 @@ const Navbar = () => {
                                     to="/Interactive"
                                     className={`nav_a ${
                                         location.pathname === '/Interactive'
-                                            ? 'active'
+                                            ? 'nav-active'
                                             : ''
                                     }`}
                                 >
@@ -282,7 +282,7 @@ const Navbar = () => {
                                     to="/news"
                                     className={`nav_a ${
                                         location.pathname === '/news'
-                                            ? 'active'
+                                            ? 'nav-active'
                                             : ''
                                     }`}
                                 >
@@ -292,7 +292,7 @@ const Navbar = () => {
                                     to="/contact"
                                     className={`nav_a ${
                                         location.pathname === '/contact'
-                                            ? 'active'
+                                            ? 'nav-active'
                                             : ''
                                     }`}
                                 >

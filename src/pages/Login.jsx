@@ -19,7 +19,7 @@ const Login = () => {
         if (phone?.length > 12) {
             const { response } = await loginRequest.request({
                 data: {
-                    phone,
+                    phone: phone.replace('+', ''),
                     password: '12345678',
                 },
             })

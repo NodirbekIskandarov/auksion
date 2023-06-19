@@ -35,13 +35,19 @@ const HeadFoot = () => {
 
                                 <div className="h_foot_box row w-100">
                                     <div className="col-lg-3 col-md-6 col-sm-12">
-                                        <a href="/" className="h_foot_btn">
+                                        <a
+                                            href="https://play.google.com/store/apps?hl=ru&gl=US"
+                                            className="h_foot_btn"
+                                        >
                                             <img src={GooglePlayIcon} alt="" />
                                         </a>
                                     </div>
 
                                     <div className="col-lg-3 col-md-6 col-sm-12">
-                                        <a href="/" className="h_foot_btn">
+                                        <a
+                                            href="https://www.apple.com/ru/app-store/"
+                                            className="h_foot_btn"
+                                        >
                                             <img src={AppStoreIcon} alt="" />
                                         </a>
                                     </div>

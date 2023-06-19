@@ -6,6 +6,14 @@
     width: 130px;
 }
 
+.nav-active {
+    font-weight: 700;
+    background: linear-gradient(180deg, #9DFFB3 0%, #1AA37A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #1AA37A;
+    background-clip: text;
+}
+
 .desktop-profile-toggle-container {
     display: flex;
     flex-direction: row;
@@ -214,9 +222,13 @@ input {
     height: 400px;
 }
 
+.news-detail-image {
+    width: 80%;
+}
+
 .filter-main {
     position: absolute;
-    height: 546px;
+    height: auto;
     width: 664px;
     top: 11%;
     left: 29%;
@@ -370,4 +382,8 @@ input {
 
 .head_auct_cat_btn img {
     margin-left: 12px;
+}
+
+.payment-image {
+    max-height: 88px;
 }

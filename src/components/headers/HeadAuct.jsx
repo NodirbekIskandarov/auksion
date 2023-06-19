@@ -30,7 +30,7 @@ const HeadAuct = () => {
                             <div className={'row w-100'}>
                                 <div
                                     className={
-                                        'col col-lg-5 col-md-12 col-sm-12 d-flex flex-row justify-content-between'
+                                        'col-12 col-lg-5 col-md-12 col-sm-12 d-flex flex-row justify-content-between'
                                     }
                                 >
                                     <div className="head_auct_name">
@@ -50,7 +50,7 @@ const HeadAuct = () => {
                                     </div>
                                 </div>
 
-                                <div className="head_auct_cat col col-lg-7 col-md-12 col-sm-12">
+                                <div className="head_auct_cat col-12 col-lg-7 col-md-12 col-sm-12">
                                     <div className="head_auct_cat_box">
                                         <div className="head_auct_cat_name ">
                                             {getText('head_auct_name_2')}

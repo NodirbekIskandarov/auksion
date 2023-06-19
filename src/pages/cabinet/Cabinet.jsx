@@ -26,10 +26,10 @@ const Cabinet = () => {
             <div className="Cabinet">
                 <div className="container">
                     <div className="row">
-                        <div className="col-3">
+                        <div className="col-12 col-lg-3 mb-2">
                             <CabHead response={response ?? {}} role={role} />
                         </div>
-                        <div className="col-9">
+                        <div className="col-12 col-lg-9">
                             <ChangeCabinetComponent
                                 role={role}
                                 response={response ?? {}}

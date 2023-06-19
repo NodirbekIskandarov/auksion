@@ -16,7 +16,7 @@ const CabMessage = () => {
                 <div className="cab_mes_search_box">
                     <div className="container">
                         <div className="row">
-                            <div className="col-12 d-flex align-items-center">
+                            <div className="col-12 d-flex flex-row flex-wrap align-items-center justify-content-center">
                                 <div className="cab_mes_inp_box_2">
                                     <img src="/img/icon_refresh.png" alt="" />
                                     <div className="cab_mes_inp_box_h">
@@ -49,7 +49,8 @@ const CabMessage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="cab_mes_box ">
+
+                <div className="cab_mes_box">
                     <div className="container">
                         <div className="row justify-content-between">
                             <div className="col-4">

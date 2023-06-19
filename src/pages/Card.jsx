@@ -27,6 +27,7 @@ import checkDeadline from '../tools/helpers/checkDeadline'
 import { addProperty } from '../store/features/propertyDetailSlice'
 
 const Card = () => {
+    const width = document.getElementById('root').clientWidth
     const language = useSelector((state) => state.language)
     const token = localStorage.getItem('token')
     const [days, setDays] = useState(0)
@@ -115,7 +116,7 @@ const Card = () => {
                 </div>
                 <div className="container">
                     <div className="row pt-5">
-                        <div className="col-5 ">
+                        <div className="col-lg-5 ">
                             <Swiper
                                 loop={true}
                                 spaceBetween={10}
@@ -184,7 +185,8 @@ const Card = () => {
                                     : ''}
                             </Swiper>
                         </div>
-                        <div className="col-7 d-flex flex-column">
+
+                        <div className="col-lg-7 d-flex flex-column">
                             <div className="">
                                 <div className="card_info_top">
                                     <div className="card_info_name">
@@ -490,7 +492,13 @@ const Card = () => {
                         <div className="col-12">
                             <Swiper
                                 loop={true}
-                                slidesPerView={4}
+                                slidesPerView={
+                                    width > 540 && width < 768
+                                        ? 3
+                                        : width < 540
+                                        ? 1
+                                        : 4
+                                }
                                 spaceBetween={24}
                                 scrollbar={{
                                     hide: true,
