@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { getText } from '../../locales'
 
 import 'swiper/css'
@@ -14,6 +14,12 @@ import { useNavigate } from 'react-router-dom'
 import Chevron from '../../img/svgs/chevron-left.svg'
 
 const HeadAuct = () => {
+    const [filterMenu, setFilterMenu] = useState({
+        all: true,
+        new: false,
+        completed: false,
+        current: false,
+    })
     const language = useSelector((state) => state.language)
     const { response } = useLoad(
         { url: GET_PROPERTY_LIST.replace('en', language) },
@@ -51,17 +57,69 @@ const HeadAuct = () => {
                                 </div>
 
                                 <div className="head_auct_cat col-12 col-lg-7 col-md-12 col-sm-12">
-                                    <div className="head_auct_cat_box">
-                                        <div className="head_auct_cat_name ">
+                                    <div className="head_auct_cat_box pointer">
+                                        <div
+                                            onClick={() =>
+                                                setFilterMenu({
+                                                    all: true,
+                                                    new: false,
+                                                    completed: false,
+                                                    current: false,
+                                                })
+                                            }
+                                            className={`head_auct_cat_name ${
+                                                filterMenu.all ? 'active' : ''
+                                            }`}
+                                        >
                                             {getText('head_auct_name_2')}
                                         </div>
-                                        <div className="head_auct_cat_name active">
+                                        <div
+                                            onClick={() =>
+                                                setFilterMenu({
+                                                    all: false,
+                                                    new: true,
+                                                    completed: false,
+                                                    current: false,
+                                                })
+                                            }
+                                            className={`head_auct_cat_name ${
+                                                filterMenu.new ? 'active' : ''
+                                            }`}
+                                        >
                                             {getText('head_auct_name_3')}
                                         </div>
-                                        <div className="head_auct_cat_name">
+                                        <div
+                                            onClick={() =>
+                                                setFilterMenu({
+                                                    all: false,
+                                                    new: false,
+                                                    completed: true,
+                                                    current: false,
+                                                })
+                                            }
+                                            className={`head_auct_cat_name ${
+                                                filterMenu.completed
+                                                    ? 'active'
+                                                    : ''
+                                            }`}
+                                        >
                                             {getText('head_auct_name_4')}
                                         </div>
-                                        <div className="head_auct_cat_name">
+                                        <div
+                                            onClick={() =>
+                                                setFilterMenu({
+                                                    all: false,
+                                                    new: false,
+                                                    completed: false,
+                                                    current: true,
+                                                })
+                                            }
+                                            className={`head_auct_cat_name ${
+                                                filterMenu.current
+                                                    ? 'active'
+                                                    : ''
+                                            }`}
+                                        >
                                             {getText('head_auct_name_5')}
                                         </div>
                                     </div>

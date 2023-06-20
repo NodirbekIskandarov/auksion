@@ -64,7 +64,7 @@ export default function LegalEntityRegister({
         if (code?.length === 6) {
             const { response, error } = await registerConfirmRequest.request({
                 data: {
-                    phone,
+                    phone: phone.replace('+', ''),
                     code,
                     password: '12345678',
                 },

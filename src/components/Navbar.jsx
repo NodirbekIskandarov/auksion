@@ -4,10 +4,10 @@ import { LANGUAGE } from '../tools/constant'
 import { getText } from '../locales'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeLanguage } from '../store/features/languageSlice'
-import Filter from './Filter'
 import FilterActiveIcon from '../img/svgs/filter-icon.svg'
 import HamburgerIcon from '../img/svgs/burger-menu.svg'
 import MobileMenu from './mobile/MobileMenu'
+import Filter from './Filter'
 
 const Navbar = () => {
     const location = useLocation()
@@ -94,17 +94,20 @@ const Navbar = () => {
                                 </button>
                             </div>
 
-                            {filterToggle ? <Filter /> : ''}
+                            {/*{filterToggle ? <Filter /> : ''}*/}
 
                             {!token ? (
-                                <div className="col-3 gap-3 desktop-nav-buttons-container">
+                                <div className="col-3 desktop-nav-buttons-container">
                                     <Link
                                         to="/registration"
                                         className="nav_btn_1"
                                     >
                                         {getText('nav_6')}
                                     </Link>
-                                    <Link to="/login" className="nav_btn_2">
+                                    <Link
+                                        to="/login"
+                                        className="nav_btn_2 ms-2"
+                                    >
                                         {getText('nav_7')}
                                     </Link>
                                 </div>
@@ -203,6 +206,14 @@ const Navbar = () => {
                                     location={location}
                                     language={language}
                                     languageHandler={languageHandler}
+                                    burgerToggle={burgerToggle}
+                                    setBurgerToggle={setBurgerToggle}
+                                    toggle={toggle}
+                                    setToggle={setToggle}
+                                    token={token}
+                                    onLogout={onLogout}
+                                    navigate={navigate}
+                                    inn={inn}
                                 />
                             ) : (
                                 ''
@@ -241,6 +252,8 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </div>
+
+                        {filterToggle ? <Filter /> : ''}
                     </div>
                 </div>
 

@@ -92,7 +92,7 @@ const Contact = () => {
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A1eb33b947e107fe6476fbe1fa9b00882b4fce3a34cb98cd445a5aa6f583bbe5d&amp;source=constructor"
                         width="500"
                         height="400"
-                        frameborder="0"
+                        frameBorder="0"
                     ></iframe>
                 </div>
             </div>
