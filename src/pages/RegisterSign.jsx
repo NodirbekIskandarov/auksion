@@ -30,6 +30,9 @@ const RegisterSign = () => {
             if (response?.token) {
                 localStorage.setItem('token', response.token)
                 localStorage.setItem('role', response.user)
+                if (response?.userId) {
+                    localStorage.setItem('userId', response.userId)
+                }
             }
 
             if (response) {

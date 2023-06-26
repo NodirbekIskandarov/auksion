@@ -13,44 +13,53 @@ import RegisterSignIn from './pages/RegisterSignIn'
 import Cabinet from './pages/cabinet/Cabinet'
 import Register from './pages/Register'
 import { Provider } from 'react-redux'
-import { store } from './store/store'
+import { persistor, store } from './store/store'
 import Login from './pages/Login'
 import NewsDetail from './pages/news/NewsDetail'
 import PrivateRoutes from './components/PrivateRoutes'
 import WebSocketPage from './pages/socket/WebSocketPage'
+import Auction from './pages/auction/Auction'
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
     return (
         <Provider store={store}>
-            <HashRouter>
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/card" element={<Card />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/news" element={<News />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/interactive" element={<Interactive />} />
-                    <Route path="/registration" element={<Register />} />
-                    <Route
-                        path="/registration-sign"
-                        element={<RegisterSign />}
-                    />
-                    <Route
-                        path="/registration-sign-in"
-                        element={<RegisterSignIn />}
-                    />
+            <PersistGate loading={null} persistor={persistor}>
+                <HashRouter>
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/card" element={<Card />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/news" element={<News />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/interactive" element={<Interactive />} />
+                        <Route path="/registration" element={<Register />} />
+                        <Route
+                            path="/registration-sign"
+                            element={<RegisterSign />}
+                        />
+                        <Route
+                            path="/registration-sign-in"
+                            element={<RegisterSignIn />}
+                        />
 
-                    <Route element={<PrivateRoutes />}>
-                        <Route path="/cabinet" element={<Cabinet />} />
-                    </Route>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/news-detail" element={<NewsDetail />} />
+                        <Route element={<PrivateRoutes />}>
+                            <Route path="/cabinet" element={<Cabinet />} />
+                        </Route>
 
-                    <Route path="/socket" element={<WebSocketPage />} />
-                </Routes>
-                <Footer />
-            </HashRouter>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/news-detail" element={<NewsDetail />} />
+
+                        <Route path="/socket" element={<WebSocketPage />} />
+
+                        <Route element={<PrivateRoutes />}>
+                            <Route path="/auction" element={<Auction />} />
+                        </Route>
+                    </Routes>
+                    <Footer />
+                </HashRouter>
+            </PersistGate>
         </Provider>
     )
 }

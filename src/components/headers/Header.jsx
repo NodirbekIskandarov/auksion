@@ -12,7 +12,6 @@ const Header = () => {
     const language = useSelector((state) => state.language)
     const width = document.getElementById('root').clientWidth
 
-    console.log(width)
     const { response } = useLoad(
         {
             url: GET_MAIN_CATALOG.replace('en', language),
@@ -35,7 +34,6 @@ const Header = () => {
         stories?.forEach((item) => {
             newArray.push({ url: item.video })
         })
-        console.log(newArray, stories.length)
         setStoriesArray(newArray)
     }
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import ArrowIcon from '../img/svgs/arrow.svg'
-import { getReduxText } from '../locales'
+import ArrowIcon from '../../img/svgs/arrow.svg'
+import { getReduxText } from '../../locales'
 import { useSelector } from 'react-redux'
-import DeleteIcon from '../img/svgs/delete.svg'
+import DeleteIcon from '../../img/svgs/delete.svg'
 
 export default function Filter() {
     const language = useSelector((state) => state.language)

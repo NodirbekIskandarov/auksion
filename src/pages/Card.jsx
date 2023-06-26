@@ -80,7 +80,7 @@ const Card = () => {
 
     const applyProperty = () => {
         if (token) {
-            alert('В разработке')
+            navigate('/auction')
         } else {
             navigate('/login')
         }
@@ -418,7 +418,7 @@ const Card = () => {
                                                     response?.propertyDetails?.find(
                                                         (item) =>
                                                             item.key === 'type'
-                                                    ).value
+                                                    )?.value
                                                 }
                                             </div>
                                         </div>
@@ -432,7 +432,7 @@ const Card = () => {
                                                         (item) =>
                                                             item.key ===
                                                             'status'
-                                                    ).value
+                                                    )?.value
                                                 }
                                             </div>
                                         </div>

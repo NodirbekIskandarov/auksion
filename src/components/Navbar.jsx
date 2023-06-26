@@ -7,7 +7,7 @@ import { changeLanguage } from '../store/features/languageSlice'
 import FilterActiveIcon from '../img/svgs/filter-icon.svg'
 import HamburgerIcon from '../img/svgs/burger-menu.svg'
 import MobileMenu from './mobile/MobileMenu'
-import Filter from './Filter'
+import Filter from './modals/Filter'
 
 const Navbar = () => {
     const location = useLocation()
@@ -93,8 +93,6 @@ const Navbar = () => {
                                     {getText('nav_8')}
                                 </button>
                             </div>
-
-                            {/*{filterToggle ? <Filter /> : ''}*/}
 
                             {!token ? (
                                 <div className="col-3 desktop-nav-buttons-container">
@@ -349,7 +347,7 @@ const Navbar = () => {
                                     <img
                                         src={
                                             language === 'uz'
-                                                ? '/img/icon_flag_1.png'
+                                                ? '/img/twemoji_flag-uzbekistan.svg'
                                                 : language === 'ru'
                                                 ? '/img/twemoji_flag-russia.svg'
                                                 : '/img/flag-um-svgrepo-com.svg'

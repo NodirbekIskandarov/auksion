@@ -1,53 +1,65 @@
 import React, { useEffect, useState } from 'react'
+import { w3cwebsocket as W3CWebSocket } from 'websocket'
 
 export default function WebSocketPage() {
-    const [messages, setMessages] = useState([])
-    const [auctionState, setAuctionState] = useState({})
+    const [value, setValue] = useState('1')
+    const [name, setName] = useState('1')
+    const [room, setRoom] = useState('1')
+    const client = new W3CWebSocket(
+        'ws://95.130.227.129:8000/ws/chat/' + room + '/'
+    )
+    const buttonClicked = (e) => {
+        client.send(
+            JSON.stringify({
+                command: 'new_message',
+                from: 1,
+                auction_id: 1,
+                price: 1,
+            })
+        )
+        setValue('')
+        e.preventDefault()
+    }
 
     useEffect(() => {
-        socket.onmessage = (event) => {
-            const data = JSON.parse(event.data)
-            setAuctionState(data.message)
+        client.onopen = () => {
+            console.log('WebSocket Client Connected')
+
+            client.send(
+                JSON.stringify({
+                    command: 'fetch_messages',
+                    auction_id: 1,
+                })
+            )
+
+            client.send(
+                JSON.stringify({
+                    command: 'fetch_items',
+                    auction_id: 1,
+                })
+            )
+        }
+
+        client.onmessage = (message) => {
+            const dataFromServer = JSON.parse(message.data)
+            console.log('got reply! ', dataFromServer)
+            // if (dataFromServer) {
+            //     setMessages((messages) => [
+            //         ...messages,
+            //         {
+            //             name: dataFromServer.name,
+            //             message: dataFromServer.message,
+            //         },
+            //     ])
+            // }
         }
     }, [])
 
-    const handleBid = (amount) => {
-        // Send the bid to the backend over the websocket connection
-        socket.send(
-            JSON.stringify({
-                message: {
-                    type: 'bid',
-                    amount: amount,
-                },
-            })
-        )
-    }
-
-    const socket = new WebSocket('wss://socketsbay.com/wss/v2/1/demo/')
-
-    socket.onopen = () => {
-        console.log('WebSocket connection opened')
-    }
-
-    socket.onmessage = (event) => {
-        const data = JSON.parse(event.data)
-        console.log('WebSocket message received:', data)
-        // Update the UI with the new auction state
-    }
-
-    socket.onclose = () => {
-        console.log('WebSocket connection closed')
-    }
-
     return (
         <div>
-            {/* Render the auction UI using the `auctionState` */}
-            <p style={{ color: 'white' }}>
-                Current bid: {auctionState.current_bid ?? 10}
-            </p>
-            <button onClick={() => handleBid(auctionState.current_bid + 10)}>
-                Bid +10
-            </button>
+            <input value={name} onChange={(e) => setName(e.target.value)} />
+            <input value={value} onChange={(e) => setValue(e.target.value)} />
+            <button onClick={buttonClicked}>Send</button>
         </div>
     )
 }

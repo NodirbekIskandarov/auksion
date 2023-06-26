@@ -13,7 +13,7 @@ import { addProperty } from '../../store/features/propertyDetailSlice'
 import { useNavigate } from 'react-router-dom'
 import Chevron from '../../img/svgs/chevron-left.svg'
 
-const HeadAuct = () => {
+const HeadAuction = () => {
     const [filterMenu, setFilterMenu] = useState({
         all: true,
         new: false,
@@ -27,6 +27,17 @@ const HeadAuct = () => {
     )
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const changeMenu = (current) => {
+        let active = Object.entries(filterMenu).find(
+            (item) => item[1] === true
+        )[0]
+        setFilterMenu({
+            ...filterMenu,
+            [active]: false,
+            [current]: true,
+        })
+    }
     return (
         <>
             <div className="HeadAuct">
@@ -59,14 +70,7 @@ const HeadAuct = () => {
                                 <div className="head_auct_cat col-12 col-lg-7 col-md-12 col-sm-12">
                                     <div className="head_auct_cat_box pointer">
                                         <div
-                                            onClick={() =>
-                                                setFilterMenu({
-                                                    all: true,
-                                                    new: false,
-                                                    completed: false,
-                                                    current: false,
-                                                })
-                                            }
+                                            onClick={() => changeMenu('all')}
                                             className={`head_auct_cat_name ${
                                                 filterMenu.all ? 'active' : ''
                                             }`}
@@ -74,14 +78,7 @@ const HeadAuct = () => {
                                             {getText('head_auct_name_2')}
                                         </div>
                                         <div
-                                            onClick={() =>
-                                                setFilterMenu({
-                                                    all: false,
-                                                    new: true,
-                                                    completed: false,
-                                                    current: false,
-                                                })
-                                            }
+                                            onClick={() => changeMenu('new')}
                                             className={`head_auct_cat_name ${
                                                 filterMenu.new ? 'active' : ''
                                             }`}
@@ -90,12 +87,7 @@ const HeadAuct = () => {
                                         </div>
                                         <div
                                             onClick={() =>
-                                                setFilterMenu({
-                                                    all: false,
-                                                    new: false,
-                                                    completed: true,
-                                                    current: false,
-                                                })
+                                                changeMenu('completed')
                                             }
                                             className={`head_auct_cat_name ${
                                                 filterMenu.completed
@@ -107,12 +99,7 @@ const HeadAuct = () => {
                                         </div>
                                         <div
                                             onClick={() =>
-                                                setFilterMenu({
-                                                    all: false,
-                                                    new: false,
-                                                    completed: false,
-                                                    current: true,
-                                                })
+                                                changeMenu('current')
                                             }
                                             className={`head_auct_cat_name ${
                                                 filterMenu.current
@@ -235,4 +222,4 @@ const HeadAuct = () => {
     )
 }
 
-export default HeadAuct
+export default HeadAuction

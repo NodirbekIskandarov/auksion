@@ -7,19 +7,24 @@ import {
     PHYSICAL_USER_DETAILS_RUD,
 } from '../../tools/urls'
 import { isAuthenticated } from '../../tools/auth'
+import { useSelector } from 'react-redux'
 
 const Cabinet = () => {
     const role = localStorage.getItem('role')
+    const toggleValue = useSelector((state) => state.toggleValue)
 
-    const { response } = useLoad({
-        url:
-            role === 'Jismoniy'
-                ? PHYSICAL_USER_DETAILS_RUD
-                : LEGAL_USER_DETAILS_RUD,
-        headers: {
-            Authorization: `Token ${isAuthenticated()}`,
+    const { response } = useLoad(
+        {
+            url:
+                role === 'Jismoniy'
+                    ? PHYSICAL_USER_DETAILS_RUD
+                    : LEGAL_USER_DETAILS_RUD,
+            headers: {
+                Authorization: `Token ${isAuthenticated()}`,
+            },
         },
-    })
+        [toggleValue]
+    )
 
     return (
         <>
