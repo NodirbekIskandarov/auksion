@@ -6,6 +6,7 @@ import { LEGAL_USER_DETAILS_RUD } from '../../tools/urls'
 import { isAuthenticated } from '../../tools/auth'
 import Alert from '../alerts/AlertError'
 import { setToggleValue } from '../../store/features/toggleSlice'
+import { getReduxText } from '../../locales'
 
 export default function ChangeLegalUserDetailModal({
     user,
@@ -37,25 +38,19 @@ export default function ChangeLegalUserDetailModal({
             values.bank &&
             values.account?.length === 20
         ) {
-            updatePhysicalUser(values)
+            updatePhysicalUser(values).then((r) => console.log(r))
         } else if (values.inn?.length !== 9) {
             setError(true)
-            setErrorText(
-                "INN ma'lumotlari xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('inn_error_text', language))
         } else if (values.mfo?.length !== 9) {
             setError(true)
-            setErrorText(
-                "Passport seriyasi xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('mfo_error_text', language))
         } else if (values.account?.length !== 20) {
             setError(true)
-            setErrorText(
-                "JSHSHIR xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('account_error_text', language))
         } else {
             setError(true)
-            setErrorText("Barcha ma'lumotlarni to'liq kiritish talab etiladi")
+            setErrorText(getReduxText('other_validate_error', language))
         }
     }
 
@@ -78,9 +73,7 @@ export default function ChangeLegalUserDetailModal({
             setModal(false)
         } else {
             setError(true)
-            setErrorText(
-                "Yangi ma'lumotlarni saqolashda xatolik yuz berdi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('save_error', language))
         }
     }
 
@@ -128,11 +121,17 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        INN:
+                                        {getReduxText(
+                                            'legal_cab_inn',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'inn'}
                                         onChange={handleChange}
                                         value={values.inn}
@@ -146,11 +145,17 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Tashkilot nomi:
+                                        {getReduxText(
+                                            'legal_cab_organization',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'name'}
                                         onChange={handleChange}
                                         value={values.name}
@@ -164,11 +169,17 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Tashkilot rahbari:
+                                        {getReduxText(
+                                            'legal_cab_director',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'director'}
                                         onChange={handleChange}
                                         value={values.director}
@@ -182,7 +193,10 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Tashkilot ro'yxatdan o'tgan sana:
+                                        {getReduxText(
+                                            'legal_cab_registered_date',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         type={'date'}
@@ -201,11 +215,18 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Manzil:
+                                        {getReduxText(
+                                            'legal_cab_address',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'address'}
                                         onChange={handleChange}
                                         value={values.address}
@@ -219,11 +240,17 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        MFO:
+                                        {getReduxText(
+                                            'legal_cab_mfo',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'mfo'}
                                         onChange={handleChange}
                                         value={values.mfo}
@@ -237,11 +264,17 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Bank filiali:
+                                        {getReduxText(
+                                            'legal_cab_bank',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'bank'}
                                         onChange={handleChange}
                                         value={values.bank}
@@ -255,11 +288,17 @@ export default function ChangeLegalUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Bank hisob raqami:
+                                        {getReduxText(
+                                            'legal_cab_account',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'account'}
                                         onChange={handleChange}
                                         value={values.account}
@@ -277,14 +316,14 @@ export default function ChangeLegalUserDetailModal({
                                     className="change-user-detail-button"
                                     type={'submit'}
                                 >
-                                    Saqlash
+                                    {getReduxText('save_button', language)}
                                 </button>
 
                                 <div
                                     onClick={() => setModal(false)}
-                                    className="change-user-detail-close-button"
+                                    className="change-user-detail-close-button pointer"
                                 >
-                                    Yopish
+                                    {getReduxText('close_button', language)}
                                 </div>
                             </div>
                         </div>

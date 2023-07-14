@@ -6,6 +6,7 @@ import { PHYSICAL_USER_DETAILS_RUD } from '../../tools/urls'
 import { isAuthenticated } from '../../tools/auth'
 import Alert from '../alerts/AlertError'
 import { setToggleValue } from '../../store/features/toggleSlice'
+import { getReduxText } from '../../locales'
 
 export default function ChangeUserDetailModal({
     user,
@@ -39,30 +40,22 @@ export default function ChangeUserDetailModal({
             values.district &&
             values.passportBy
         ) {
-            updatePhysicalUser(values)
+            updatePhysicalUser(values).then((response) => console.log(response))
         } else if (values.stir?.length !== 9) {
             setError(true)
-            setErrorText(
-                "Stir ma'lumotlari xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('inn_error_text', language))
         } else if (values.passportNumber?.length !== 9) {
             setError(true)
-            setErrorText(
-                "Passport seriyasi xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('passport_error_text', language))
         } else if (values.identification?.length !== 14) {
             setError(true)
-            setErrorText(
-                "JSHSHIR xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('identification_error_text', language))
         } else if (values.phone?.length < 12) {
             setError(true)
-            setErrorText(
-                "Telefon raqam xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('phone_error_text', language))
         } else {
             setError(true)
-            setErrorText("Barcha ma'lumotlarni to'liq kiritish talab etiladi")
+            setErrorText(getReduxText('other_validate_error', language))
         }
     }
 
@@ -87,9 +80,7 @@ export default function ChangeUserDetailModal({
             setModal(false)
         } else {
             setError(true)
-            setErrorText(
-                "Yangi ma'lumotlarni saqolashda xatolik yuz berdi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('save_error', language))
         }
     }
     useEffect(() => {
@@ -139,7 +130,11 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Shaxs turi:
+                                        {getReduxText(
+                                            'main_cab_identity_type',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <select
                                         className={'change-user-detail-select'}
@@ -149,7 +144,12 @@ export default function ChangeUserDetailModal({
                                         value={values.type}
                                         onBlur={handleBlur}
                                     >
-                                        <option>Jismoniy shaxs</option>
+                                        <option>
+                                            {getReduxText(
+                                                'physical_user',
+                                                language
+                                            )}
+                                        </option>
                                     </select>
                                 </div>
 
@@ -159,7 +159,11 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Fuqoroligi:
+                                        {getReduxText(
+                                            'main_cab_citizen',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <select
                                         className={'change-user-detail-select'}
@@ -181,7 +185,11 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Tug‘ilgan sana:
+                                        {getReduxText(
+                                            'main_cab_birthDate',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <input
                                         type={'date'}
@@ -200,7 +208,11 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Jinsi:
+                                        {getReduxText(
+                                            'main_cab_gender',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <select
                                         className={'change-user-detail-select'}
@@ -230,11 +242,18 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        STIR: *Ma’lumotni kiritish ixtiyoriy
+                                        {getReduxText(
+                                            'main_cab_stir',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'stir'}
                                         onChange={handleChange}
                                         value={values.stir}
@@ -248,11 +267,18 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Ishtirokchi nomi:
+                                        {getReduxText(
+                                            'main_cab_name',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'name'}
                                         onChange={handleChange}
                                         value={values.name}
@@ -266,11 +292,18 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Pasport seriyasi va raqami:
+                                        {getReduxText(
+                                            'main_cab_passport_number',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'passportNumber'}
                                         onChange={handleChange}
                                         value={values.passportNumber}
@@ -284,7 +317,11 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Pasport berilgan sana:
+                                        {getReduxText(
+                                            'main_cab_passport_date',
+                                            language
+                                        )}
+                                        :
                                     </label>
                                     <input
                                         type={'date'}
@@ -303,11 +340,17 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        JSHSHIR:
+                                        {getReduxText(
+                                            'physical_cab_identification',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'identification'}
                                         onChange={handleChange}
                                         value={values.identification}
@@ -321,11 +364,17 @@ export default function ChangeUserDetailModal({
                                     }
                                 >
                                     <label className={'filter-label'}>
-                                        Kim tomonidan berilgan:
+                                        {getReduxText(
+                                            'physical_cab_passport_by',
+                                            language
+                                        )}
                                     </label>
                                     <input
                                         className={'change-user-detail-input'}
-                                        placeholder={'Kiriting'}
+                                        placeholder={getReduxText(
+                                            'enter_placeholder',
+                                            language
+                                        )}
                                         name={'passportBy'}
                                         onChange={handleChange}
                                         value={values.passportBy}
@@ -343,14 +392,14 @@ export default function ChangeUserDetailModal({
                                     className="change-user-detail-button"
                                     type={'submit'}
                                 >
-                                    Saqlash
+                                    {getReduxText('save_button', language)}
                                 </button>
 
                                 <div
                                     onClick={() => setModal(false)}
                                     className="change-user-detail-close-button"
                                 >
-                                    Yopish
+                                    {getReduxText('close_button', language)}
                                 </div>
                             </div>
                         </div>

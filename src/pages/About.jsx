@@ -5,9 +5,15 @@ import {
     AccordionItem,
     UncontrolledAccordion,
 } from 'reactstrap'
+import { getReduxText } from '../locales'
+import { useSelector } from 'react-redux'
+import useDownloader from 'react-use-downloader'
+import Fuqarolik from '../img/Fuqarolik-kodeksi.pdf'
 
 const About = () => {
     const [open, setOpen] = useState('')
+    const language = useSelector((state) => state.language)
+    const { download } = useDownloader()
     const toggle = (id) => {
         if (open === id) {
             setOpen()
@@ -28,58 +34,104 @@ const About = () => {
                                 <AccordionItem>
                                     <AccordionHeader targetId="1">
                                         <div className="a_acor_name">
-                                            «sanartauction» elektron savdo
-                                            platformasi to‘g‘risida
+                                            {getReduxText(
+                                                'about_auction_title',
+                                                language
+                                            )}
                                         </div>
                                     </AccordionHeader>
                                     <AccordionBody accordionId="1">
                                         <div className="a_acor_p">
-                                            Elektron onlayn-auksionlar Internet
-                                            tarmog‘i orqali ishtirok etish
-                                            imkonini beradigan hamda
-                                            buyurtmalarni qabul qilish va
-                                            g‘olibni aniqlash
-                                            tartib-taomillariga aralashuvni
-                                            istisno etadigan maxsus dasturiy
-                                            mahsulotdan foydalanilgan holda
-                                            o‘tkaziladi.
+                                            {getReduxText(
+                                                'about_auction_description',
+                                                language
+                                            )}
                                         </div>
                                     </AccordionBody>
                                     <AccordionHeader targetId="2">
                                         <div className="a_acor_name">
-                                            «sanartauction» elektron savdo
-                                            platformasi to‘g‘risida
+                                            {getReduxText(
+                                                'about_auction_title',
+                                                language
+                                            )}
                                         </div>
                                     </AccordionHeader>
                                     <AccordionBody accordionId="2">
                                         <div className="d-flex flex-row flex-wrap align-items-center">
-                                            <div className="a_acor_box mt-2">
+                                            <div
+                                                onClick={() =>
+                                                    download(
+                                                        Fuqarolik,
+                                                        'Fuqarolik.pdf'
+                                                    )
+                                                }
+                                                className="a_acor_box mt-2 pointer"
+                                            >
                                                 <img
                                                     src="/img/icon_pdf.png"
                                                     alt=""
                                                 />
-                                                Namunaviy shartnoma
+                                                {getReduxText(
+                                                    'about_auction_file',
+                                                    language
+                                                )}
                                             </div>
-                                            <div className="a_acor_box mt-2">
+
+                                            <div
+                                                onClick={() =>
+                                                    download(
+                                                        Fuqarolik,
+                                                        'Fuqarolik.pdf'
+                                                    )
+                                                }
+                                                className="a_acor_box mt-2 pointer"
+                                            >
                                                 <img
                                                     src="/img/icon_pdf.png"
                                                     alt=""
                                                 />
-                                                Namunaviy shartnoma
+                                                {getReduxText(
+                                                    'about_auction_file',
+                                                    language
+                                                )}
                                             </div>
-                                            <div className="a_acor_box mt-2">
+
+                                            <div
+                                                onClick={() =>
+                                                    download(
+                                                        Fuqarolik,
+                                                        'Fuqarolik.pdf'
+                                                    )
+                                                }
+                                                className="a_acor_box mt-2 pointer"
+                                            >
                                                 <img
                                                     src="/img/icon_pdf.png"
                                                     alt=""
                                                 />
-                                                Namunaviy shartnoma
+                                                {getReduxText(
+                                                    'about_auction_file',
+                                                    language
+                                                )}
                                             </div>
-                                            <div className="a_acor_box mt-2">
+
+                                            <div
+                                                onClick={() =>
+                                                    download(
+                                                        Fuqarolik,
+                                                        'Fuqarolik.pdf'
+                                                    )
+                                                }
+                                                className="a_acor_box mt-2 pointer"
+                                            >
                                                 <img
                                                     src="/img/icon_pdf.png"
                                                     alt=""
                                                 />
-                                                Namunaviy shartnoma
+                                                {getReduxText(
+                                                    'about_auction_file',
+                                                    language
+                                                )}
                                             </div>
                                         </div>
                                     </AccordionBody>

@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import Alert from '../components/alerts/AlertError'
 import PhysicalPersonRegister from '../components/register/PhysicalPersonRegister'
 import LegalEntityRegister from '../components/register/LegalEntityRegister'
+import { getReduxText } from '../locales'
+import { useSelector } from 'react-redux'
 
 const Register = () => {
     const [userType, setUserType] = useState(false)
     const [error, setError] = useState(false)
     const [errorText, setErrorText] = useState('')
     const [success, setSuccess] = useState(false)
+    const language = useSelector((state) => state.language)
 
     return (
         <>
@@ -17,7 +20,7 @@ const Register = () => {
                         <div className="col-12">
                             <div className="log_box">
                                 <div className="log_name">
-                                    Ro‘yxatdan o‘tish
+                                    {getReduxText('nav_6', language)}
                                 </div>
                                 <div className="log_box_type">
                                     <div
@@ -28,7 +31,10 @@ const Register = () => {
                                                 : 'log_box_type_in active pointer'
                                         }
                                     >
-                                        Jismoniy shaxs
+                                        {getReduxText(
+                                            'physical_user',
+                                            language
+                                        )}
                                     </div>
                                     <div
                                         onClick={() => setUserType(!userType)}
@@ -38,7 +44,7 @@ const Register = () => {
                                                 : 'log_box_type_in active pointer'
                                         }
                                     >
-                                        Yuridik shaxs
+                                        {getReduxText('legal_user', language)}
                                     </div>
                                     {error ? (
                                         <Alert

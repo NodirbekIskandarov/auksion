@@ -8,6 +8,8 @@ import {
     USER_RUD,
 } from '../../tools/urls'
 import { Formik } from 'formik'
+import { getReduxText } from '../../locales'
+import { useSelector } from 'react-redux'
 
 export default function LegalEntityRegister({
     setErrorText,
@@ -16,6 +18,8 @@ export default function LegalEntityRegister({
     success,
 }) {
     const [token, setToken] = useState('')
+
+    const language = useSelector((state) => state.language)
 
     const inputRef = useRef(null)
 
@@ -49,11 +53,11 @@ export default function LegalEntityRegister({
             },
         })
         if (response) {
-            setErrorText('Telefon raqamingizga yuborilgan kodni kiriting')
+            setErrorText(getReduxText('physical_code_notification', language))
             setError(true)
             inputRef.current.focus()
         } else if (error) {
-            setErrorText("Ma'lumotlarni kiritishda xatolik yuz berdi")
+            setErrorText(getReduxText('physical_all_data_error_text', language))
             setError(true)
         }
     }
@@ -76,18 +80,18 @@ export default function LegalEntityRegister({
 
             if (response) {
                 setErrorText(
-                    'Akkauntingiz muvaffaqiyatli yaratildi. Tasdiqlash tugmasini bosing.'
+                    getReduxText('physical_final_success_text', language)
                 )
                 setError(true)
                 setSuccess(true)
             } else if (error) {
-                setErrorText("Ma'lumotlarni kiritishda xatolik yuz berdi")
+                setErrorText(
+                    getReduxText('physical_all_data_error_text', language)
+                )
                 setError(true)
             }
         } else {
-            setErrorText(
-                'Telefon raqamingizga yuborilgan 6 xonalik kodni kiriting'
-            )
+            setErrorText(getReduxText('physical_code_notification', language))
             setError(true)
         }
     }
@@ -110,9 +114,7 @@ export default function LegalEntityRegister({
             changeRoleToLegal()
         } else {
             setError(true)
-            setErrorText(
-                "Yangi akkaunt yaratilmadi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('physical_fail_error_text', language))
         }
     }
 
@@ -127,9 +129,7 @@ export default function LegalEntityRegister({
             navigate('/login')
         } else {
             setError(true)
-            setErrorText(
-                "Yangi akkaunt yaratilmadi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('physical_fail_error_text', language))
         }
     }
 
@@ -139,7 +139,7 @@ export default function LegalEntityRegister({
             values.date &&
             values.name &&
             values.owner &&
-            values.mfo.length === 9 &&
+            values.mfo.length === 5 &&
             values.address &&
             values.bank &&
             values.account?.length === 20 &&
@@ -148,27 +148,19 @@ export default function LegalEntityRegister({
             registerFirstStep(values.phone)
         } else if (values.inn?.length !== 9) {
             setError(true)
-            setErrorText(
-                "INN ma'lumotlari xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
-        } else if (values.mfo?.length !== 9) {
+            setErrorText(getReduxText('inn_error_text', language))
+        } else if (values.mfo?.length !== 5) {
             setError(true)
-            setErrorText(
-                "MFO ma'lumotlari xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('mfo_error_text', language))
         } else if (values.account?.length !== 20) {
             setError(true)
-            setErrorText(
-                "Bank hisob raqami xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('account_error_text', language))
         } else if (values.phone?.length < 12) {
             setError(true)
-            setErrorText(
-                "Telefon raqam xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('physical_phone_error_text', language))
         } else {
             setError(true)
-            setErrorText("Barcha ma'lumotlarni to'liq kiritish talab etiladi")
+            setErrorText(getReduxText('physical_fill_all_error_text', language))
         }
     }
 
@@ -189,7 +181,6 @@ export default function LegalEntityRegister({
                 }}
                 onSubmit={(values) => {
                     validateRegister(values)
-                    console.log(values)
                 }}
             >
                 {({ values, handleChange, handleBlur, handleSubmit }) => (
@@ -197,7 +188,12 @@ export default function LegalEntityRegister({
                         <div className="log_main row">
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                                 <div className="inp_box">
-                                    <div className="inp_name">*INN</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'legal_register_inn',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -212,7 +208,10 @@ export default function LegalEntityRegister({
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Tashkilot nomi
+                                        {getReduxText(
+                                            'legal_register_organization',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="text"
@@ -228,7 +227,10 @@ export default function LegalEntityRegister({
                             <div className="log_main_type col-12 col-lg-4">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Tashkilot rahbari FIO
+                                        {getReduxText(
+                                            'legal_register_director',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="text"
@@ -246,7 +248,10 @@ export default function LegalEntityRegister({
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Tashkilot ro'yxatdan o'tgan sana
+                                        {getReduxText(
+                                            'legal_register_registered_date',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="date"
@@ -260,7 +265,12 @@ export default function LegalEntityRegister({
                             </div>
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                                 <div className="inp_box">
-                                    <div className="inp_name">*MFO</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'legal_register_mfo',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -274,7 +284,12 @@ export default function LegalEntityRegister({
 
                             <div className="log_main_type col-12 col-lg-4">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Manzil</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'legal_register_address',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -291,7 +306,10 @@ export default function LegalEntityRegister({
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Bank filiali
+                                        {getReduxText(
+                                            'legal_register_bank',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="text"
@@ -306,7 +324,10 @@ export default function LegalEntityRegister({
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Bank hisob raqami
+                                        {getReduxText(
+                                            'legal_register_account',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="text"
@@ -321,7 +342,12 @@ export default function LegalEntityRegister({
 
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4 d-flex flex-row">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Telefon</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'legal_register_phone',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -335,14 +361,19 @@ export default function LegalEntityRegister({
                                     type={'submit'}
                                     className="inp_btn active text-center"
                                 >
-                                    SMS yuborish
+                                    {getReduxText('send_sms', language)}
                                 </button>
                             </div>
                         </div>
                         <div className="log_main row">
                             <div className="log_main_type log_main_type_2 col-12 col-lg-4 d-flex flex-row">
                                 <div className="inp_box">
-                                    <div className="inp_name">*SMS kod</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'legal_register_code',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         ref={inputRef}
                                         type="text"
@@ -386,12 +417,15 @@ export default function LegalEntityRegister({
                                     } else {
                                         setError(true)
                                         setErrorText(
-                                            "Yangi akkaunt yaratilmadi. Iltimos qaytadan urinib ko'ring"
+                                            getReduxText(
+                                                'physical_fail_error_text',
+                                                language
+                                            )
                                         )
                                     }
                                 }}
                             >
-                                Tasdiqlash
+                                {getReduxText('register_confirm', language)}
                             </div>
                         </div>
                     </form>

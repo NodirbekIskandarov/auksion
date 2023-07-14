@@ -74,7 +74,7 @@ export const en = {
     cab_menu_contracts: 'Pre-judgment/lease agreements',
 
     main_cab_generalInfo: 'General information',
-    main_cab_identity_type: 'Type of person',
+    main_cab_identity_type: 'Type of user',
     main_cab_citizen: 'Citizenship',
     main_cab_stir: 'STIR',
     main_cab_name: 'Participant name',
@@ -133,4 +133,120 @@ export const en = {
 
     stir_placeholder: 'TIN',
     login_define_example: 'Sample: 123 456 789 or 123 456 789 101 12',
+
+    legal_cab_general_info: 'General information',
+    legal_cab_user_type: 'Person type:',
+    legal_cab_inn: 'TIN:',
+    legal_cab_organization: 'Name of organization:',
+    legal_cab_director: 'Head of the organization:',
+    legal_cab_registered_date: 'Date of organization registration:',
+    legal_cab_address: 'Address',
+    legal_cab_bank_information: 'Bank details',
+    legal_cab_bank: 'Bank branch:',
+    legal_cab_account: 'Bank account number:',
+    legal_cab_mfo: 'MFO:',
+    legal_cab_contact_information: 'Contact information',
+    legal_cab_phone: 'Phone:',
+
+    physical_cab_identification: 'ID number:',
+    physical_cab_passport_by: 'Passport was given by:',
+
+    edit_button: 'Editing',
+    save_button: 'Save',
+    close_button: 'Close',
+
+    physical_user: 'Individual',
+    legal_user: 'Entity',
+
+    enter_placeholder: 'Enter',
+
+    inn_error_text: 'The TIN data was entered incorrectly. Please try again',
+    mfo_error_text: 'MFO was entered incorrectly. Please try again',
+    account_error_text:
+        'The bank account number was entered incorrectly. Please try again',
+    other_validate_error: 'All information must be entered in full',
+    save_error: 'An error occurred while saving new data. Please try again',
+    passport_error_text:
+        'The Passport series was entered incorrectly. Please try again',
+    identification_error_text:
+        'STIR entered incorrectly. Please check the data',
+    phone_error_text: 'Phone number entered incorrectly. Please check the data',
+
+    filter_modal_title: 'Filter',
+    filter_modal_lot_number: 'Lot number or property name',
+    filter_modal_region: 'Region',
+    filter_modal_district: 'District',
+    filter_modal_sale_date: 'Trade day',
+    filter_modal_type_buy: 'Form of payment',
+    filter_modal_object_type: 'Type of object',
+    filter_modal_sale_type: 'Type of transaction',
+    filter_modal_sale_method: 'Trading method',
+
+    properties_information_card: 'Property information',
+    lots_information_card: 'Lot information',
+    type_information_card: 'Property type',
+    status_information_card: 'Lot status',
+    documents_information_card: 'Lot documents',
+
+    about_auction_title: 'ABOUT "SANARTAUCTION" ELECTRONIC TRADE PLATFORM',
+    about_auction_description:
+        'Electronic online auctions are conducted using a special software product that allows participation via the Internet and excludes interference with the procedures for accepting orders and determining the winner.',
+    about_auction_file: 'Sample contract',
+
+    legal_register_inn: '*TIN',
+    legal_register_organization: '*Name of organization',
+    legal_register_director: '*Head of the organization',
+    legal_register_registered_date: '*Date of organization registration',
+    legal_register_mfo: '*MFO',
+    legal_register_address: '*Address',
+    legal_register_bank: '*Bank branch',
+    legal_register_account: '*Bank account number',
+    legal_register_phone: '*Phone',
+    legal_register_code: '*SMS confirmation code',
+
+    send_sms: 'Send sms',
+
+    register_confirm: 'Confirm',
+
+    main_register_name: '*Full name',
+    main_register_citizen: '*Citizen',
+    main_register_stir: '*TIN',
+    main_register_birthDate: '*Date of birth',
+    main_register_gender: '*Gender',
+    main_register_inn: '*INN',
+    main_register_passport_number: '*Passport series and number',
+    main_register_passport_date: '*Passport issue date',
+    main_register_region: '*Region',
+    main_register_district: '*District',
+    main_register_phone: '*Phone',
+
+    m_gender: 'Male',
+    f_gender: 'Female',
+
+    physical_phone_error_text:
+        'The phone number was entered incorrectly. Please try again',
+    physical_all_data_error_text: 'An error occurred while entering data',
+    physical_final_success_text:
+        'Your account has been successfully created. Click the confirm button.',
+    physical_code_notification:
+        'Enter the 6-digit code sent to your phone number',
+    physical_stir_error_text:
+        'The INN data was entered incorrectly. Please try again',
+    physical_passport_error_text:
+        'The Passport series was entered incorrectly. Please try again',
+    physical_jshshr_error_text: 'Wrong PINFL entered. Please try again',
+    physical_fill_all_error_text: 'All information must be entered in full',
+    physical_fail_error_text: 'No new account created. Please try again',
+
+    login_description:
+        'By clicking the confirmation button, you agree to the terms of the "Privacy Policy"!',
+
+    phone_doesnot_exist: 'This phone number is not registered',
+
+    incorrect_code: 'The code was entered incorrectly. Please check it out.',
+    code_fill_text: 'A full 6-digit code is required.',
+    confirm_phone_title: 'Confirm phone number',
+    your: 'To your number ',
+    code_was_sent:
+        ' verification code has been sent. Please enter the verification code!',
 }

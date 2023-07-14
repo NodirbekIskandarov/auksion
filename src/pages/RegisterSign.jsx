@@ -4,9 +4,12 @@ import ReactCodeInput from 'react-code-input'
 import { usePostRequest } from '../hooks/request'
 import Alert from '../components/alerts/AlertError'
 import { LOGIN_VERIFY } from '../tools/urls'
+import { getReduxText } from '../locales'
+import { useSelector } from 'react-redux'
 
 const RegisterSign = () => {
     const navigate = useNavigate()
+    const language = useSelector((state) => state.language)
     const { state } = useLocation()
     const [code, setCode] = useState('')
     const [error, setError] = useState(false)
@@ -39,11 +42,11 @@ const RegisterSign = () => {
                 navigate('/cabinet')
                 window.location.reload(true)
             } else {
-                setErrorText("Kod xato kiritildi. Iltimos tekshirib ko'ring.")
+                setErrorText(getReduxText('incorrect_code', language))
                 setError(true)
             }
         } else {
-            setErrorText("6 xonalik kodni to'liq kiritish talab etiladi.")
+            setErrorText(getReduxText('code_fill_text', language))
             setError(true)
         }
     }
@@ -65,13 +68,18 @@ const RegisterSign = () => {
                             <div className="col-12 d-flex justify-content-center">
                                 <div className="reg_box">
                                     <div className="reg_box_name">
-                                        Telefon raqamni tasdiqlash
+                                        {getReduxText(
+                                            'confirm_phone_title',
+                                            language
+                                        )}
                                     </div>
                                     <div className="reg_box_h">
-                                        Sizning <span> {state?.phone}</span>{' '}
-                                        Telefon raqamingizni tasdiqlash kodi
-                                        yuborildi. Iltimos tasdiqlash kodini
-                                        kiriting !
+                                        {getReduxText('your', language)}
+                                        <span> {state?.phone}</span>
+                                        {getReduxText(
+                                            'code_was_sent',
+                                            language
+                                        )}
                                     </div>
                                     <div className="reg_sign_box">
                                         <ReactCodeInput
@@ -112,7 +120,10 @@ const RegisterSign = () => {
                                         className="reg_box_link"
                                         onClick={loginVerify}
                                     >
-                                        Tasdiqlash
+                                        {getReduxText(
+                                            'register_confirm',
+                                            language
+                                        )}
                                     </div>
                                 </div>
                             </div>

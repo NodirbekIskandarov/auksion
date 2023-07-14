@@ -133,4 +133,125 @@ export const ru = {
 
     stir_placeholder: 'СТИР',
     login_define_example: 'Образец: 123 456 789 или 123 456 789 101 12',
+
+    legal_cab_general_info: 'Общая информация',
+    legal_cab_user_type: 'Тип пользователя:',
+    legal_cab_inn: 'ИНН:',
+    legal_cab_organization: 'Название организации:',
+    legal_cab_director: 'Руководитель организации:',
+    legal_cab_registered_date: 'Дата регистрации организации:',
+    legal_cab_address: 'Адрес',
+    legal_cab_bank_information: 'Банковские реквизиты',
+    legal_cab_bank: 'Филиал банка:',
+    legal_cab_account: 'Номер банковского счета:',
+    legal_cab_mfo: 'МФО:',
+    legal_cab_contact_information: 'Контактная информация',
+    legal_cab_phone: 'Телефон:',
+
+    physical_cab_identification: 'ПНФЛ:',
+    physical_cab_passport_by: 'Пасспорт дано:',
+
+    edit_button: 'Редактирование',
+    save_button: 'Сохранить',
+    close_button: 'Закрить',
+
+    physical_user: 'Физическое лицо',
+    legal_user: 'Юридическое лицо',
+
+    enter_placeholder: 'Заполните',
+
+    inn_error_text:
+        'Данные ИНН введены неверно. Пожалуйста, попробуйте еще раз',
+    mfo_error_text: 'МФО введен неправильно. Пожалуйста, попробуйте еще раз',
+    account_error_text:
+        'Номер банковского счета был введен неправильно. Пожалуйста, попробуйте еще раз',
+    other_validate_error: 'Вся информация должна быть введена полностью',
+    save_error:
+        'Произошла ошибка при сохранении новых данных. Пожалуйста, попробуйте еще раз',
+    passport_error_text:
+        'Серия паспорта введена неправильно. Пожалуйста, попробуйте еще раз',
+    identification_error_text:
+        'СТИР введен неправильно. Пожалуйста, проверьте данные',
+    phone_error_text:
+        'Номер телефона введен неверно. Пожалуйста, проверьте данные',
+
+    filter_modal_title: 'Фильтр',
+    filter_modal_lot_number: 'Номер лота или название имущество',
+    filter_modal_region: 'Область',
+    filter_modal_district: 'Район',
+    filter_modal_sale_date: 'Торговый день',
+    filter_modal_type_buy: 'Форма оплаты',
+    filter_modal_object_type: 'Тип объекта',
+    filter_modal_sale_type: 'Тип транзакции',
+    filter_modal_sale_method: 'Метод торговли',
+
+    properties_information_card: 'Информация о собственности',
+    lots_information_card: 'Информация о лоте',
+    type_information_card: 'Тип недвижимости',
+    status_information_card: 'Статус лота',
+    documents_information_card: 'Документы лота',
+
+    about_auction_title: 'ОБ ЭЛЕКТРОННОЙ ТОРГОВОЙ ПЛОЩАДКЕ "SANARTAUCTION"',
+    about_auction_description:
+        'Электронные интернет-аукционы проводятся с использованием специального программного продукта, позволяющего участвовать через сеть Интернет и исключающего вмешательство в процедуры приема заказов и определения победителя.',
+    about_auction_file: 'Образец договора',
+
+    legal_register_inn: '*СТИР',
+    legal_register_organization: '*Название организации',
+    legal_register_director: '*Руководитель организации',
+    legal_register_registered_date: '*Дата регистрации организации',
+    legal_register_mfo: '*МФО',
+    legal_register_address: '*Адрес',
+    legal_register_bank: '*Филиал банка',
+    legal_register_account: '*Номер банковского счета',
+    legal_register_phone: '*Телефон',
+    legal_register_code: '*СМС код',
+
+    send_sms: 'Отправить смс',
+
+    register_confirm: 'Подтвердить',
+
+    main_register_name: '*ФИО',
+    main_register_citizen: '*Гражданство',
+    main_register_stir: '*СТИР',
+    main_register_birthDate: '*Дата рождения',
+    main_register_gender: '*Пол',
+    main_register_inn: '*ПИНФЛ',
+    main_register_passport_number: '*Серия и номер пасспорта',
+    main_register_passport_date: '*Дата выдачи паспорта',
+    main_register_region: '*Область',
+    main_register_district: '*Район',
+    main_register_phone: '*Телефон',
+
+    m_gender: 'Мужчина',
+    f_gender: 'Женщина',
+
+    physical_phone_error_text:
+        'Номер телефона был введен неправильно. Пожалуйста, попробуйте еще раз',
+    physical_all_data_error_text: 'Произошла ошибка при вводе данных',
+    physical_final_success_text:
+        'Ваша учетная запись успешно создана. Нажмите кнопку подтверждения.',
+    physical_code_notification:
+        'Введите 6-значный код, отправленный на ваш номер телефона',
+    physical_stir_error_text:
+        'Данные ИНН введены неверно. Пожалуйста, попробуйте еще раз',
+    physical_passport_error_text:
+        'Серия паспорта введена неправильно. Пожалуйста, попробуйте еще раз',
+    physical_jshshr_error_text:
+        'Введена неправильный ПИНФЛ. Пожалуйста, попробуйте еще раз',
+    physical_fill_all_error_text:
+        'Вся информация должна быть введена полностью',
+    physical_fail_error_text:
+        'Новая учетная запись не создана. Пожалуйста, попробуйте еще раз',
+
+    login_description:
+        'Нажимая кнопку подтверждения, вы соглашаетесь с условиями «Политики конфиденциальности»!',
+
+    phone_doesnot_exist: 'Этот номер телефона не зарегистрирован',
+
+    incorrect_code: 'Код был введен неправильно. Пожалуйста, проверьте это.',
+    code_fill_text: 'Требуется полный 6-значный код.',
+    confirm_phone_title: 'Подтвердить номер телефона',
+    your: 'Код На ваш номер ',
+    code_was_sent: ' был отправлен. Пожалуйста, введите проверочный код!',
 }

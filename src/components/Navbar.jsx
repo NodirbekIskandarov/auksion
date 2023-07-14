@@ -346,11 +346,11 @@ const Navbar = () => {
                                 <div className="nav_lang">
                                     <img
                                         src={
-                                            language === 'uz'
-                                                ? '/img/twemoji_flag-uzbekistan.svg'
+                                            language === 'en'
+                                                ? '/img/flag-um-svgrepo-com.svg'
                                                 : language === 'ru'
                                                 ? '/img/twemoji_flag-russia.svg'
-                                                : '/img/flag-um-svgrepo-com.svg'
+                                                : '/img/twemoji_flag-uzbekistan.svg'
                                         }
                                         alt=""
                                         className={'flag-icon'}

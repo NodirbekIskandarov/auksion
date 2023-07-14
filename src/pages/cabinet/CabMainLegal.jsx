@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import EditIcon from '../../img/svgs/edit.svg'
 import { useSelector } from 'react-redux'
 import ChangeLegalUserDetailModal from '../../components/modals/ChangeLegalUserDetailModal'
+import { getReduxText } from '../../locales'
 
 const CabMainLegal = ({ user }) => {
     const phone = localStorage.getItem('phone')
@@ -30,22 +31,34 @@ const CabMainLegal = ({ user }) => {
 
                             <div className="cab_1">
                                 <div className="cab_1_name">
-                                    Umumiy ma’lumotlar
+                                    {getReduxText(
+                                        'legal_cab_general_info',
+                                        language
+                                    )}
                                 </div>
 
                                 <div className="cab_1_box row">
                                     <div className="cab_1_box_name col-lg-3 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Shaxs turi:
+                                            {getReduxText(
+                                                'legal_cab_user_type',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
-                                            Yuridik shaxs
+                                            {getReduxText(
+                                                'legal_user',
+                                                language
+                                            )}
                                         </div>
                                     </div>
 
                                     <div className="cab_1_box_name col-lg-3 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            INN:
+                                            {getReduxText(
+                                                'legal_cab_inn',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.inn}
@@ -54,7 +67,10 @@ const CabMainLegal = ({ user }) => {
 
                                     <div className="cab_1_box_name col-lg-3 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Tashkilot nomi:
+                                            {getReduxText(
+                                                'legal_cab_organization',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.name}
@@ -63,7 +79,10 @@ const CabMainLegal = ({ user }) => {
 
                                     <div className="cab_1_box_name_2 col-lg-3 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Tashkilot rahbari:
+                                            {getReduxText(
+                                                'legal_cab_director',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.director}
@@ -74,7 +93,10 @@ const CabMainLegal = ({ user }) => {
                                 <div className="cab_1_box row">
                                     <div className="cab_1_box_name_2">
                                         <div className="cab_1_box_name_h px-3">
-                                            Tashkilot ro'yxatdan o'tgan sana:
+                                            {getReduxText(
+                                                'legal_cab_registered_date',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.registeredDate}
@@ -90,7 +112,10 @@ const CabMainLegal = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}
@@ -102,12 +127,21 @@ const CabMainLegal = ({ user }) => {
                             </div>
 
                             <div className="cab_1">
-                                <div className="cab_1_name">Manzil</div>
+                                <div className="cab_1_name">
+                                    {getReduxText(
+                                        'legal_cab_address',
+                                        language
+                                    )}
+                                </div>
 
                                 <div className="cab_1_box row">
                                     <div className="cab_1_box_name_2 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Manzil:
+                                            {getReduxText(
+                                                'legal_cab_address',
+                                                language
+                                            )}
+                                            :
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.address}
@@ -123,7 +157,10 @@ const CabMainLegal = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}
@@ -136,13 +173,19 @@ const CabMainLegal = ({ user }) => {
 
                             <div className="cab_1">
                                 <div className="cab_1_name">
-                                    Bank ma’lumotlari
+                                    {getReduxText(
+                                        'legal_cab_bank_information',
+                                        language
+                                    )}
                                 </div>
 
                                 <div className="cab_1_box row">
                                     <div className="cab_1_box_name col-lg-4 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Bank filiali:
+                                            {getReduxText(
+                                                'legal_cab_bank',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.bank}
@@ -151,7 +194,10 @@ const CabMainLegal = ({ user }) => {
 
                                     <div className="cab_1_box_name col-lg-4 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Bank hisob raqami:
+                                            {getReduxText(
+                                                'legal_cab_account',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.account}
@@ -160,7 +206,10 @@ const CabMainLegal = ({ user }) => {
 
                                     <div className="cab_1_box_name col-lg-4 col-md-12 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            MFO:
+                                            {getReduxText(
+                                                'legal_cab_mfo',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {user?.mfo}
@@ -176,7 +225,10 @@ const CabMainLegal = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}
@@ -189,13 +241,19 @@ const CabMainLegal = ({ user }) => {
 
                             <div className="cab_1">
                                 <div className="cab_1_name">
-                                    Aloqa ma’lumotlari
+                                    {getReduxText(
+                                        'legal_cab_contact_information',
+                                        language
+                                    )}
                                 </div>
 
                                 <div className="cab_1_box row">
                                     <div className="cab_1_box_name_2 col-12">
                                         <div className="cab_1_box_name_h px-3">
-                                            Telefon:
+                                            {getReduxText(
+                                                'legal_cab_phone',
+                                                language
+                                            )}
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
                                             {phone ?? ''}
@@ -211,7 +269,10 @@ const CabMainLegal = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}

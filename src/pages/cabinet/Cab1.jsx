@@ -46,7 +46,10 @@ const Cab1 = ({ user }) => {
                                             :
                                         </div>
                                         <div className="cab_1_box_name_p px-3">
-                                            Jismoniy shaxs
+                                            {getReduxText(
+                                                'physical_user',
+                                                language
+                                            )}
                                         </div>
                                     </div>
                                     <div className="cab_1_box_name col-lg-3">
@@ -146,7 +149,10 @@ const Cab1 = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}
@@ -217,7 +223,10 @@ const Cab1 = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}
@@ -289,7 +298,10 @@ const Cab1 = ({ user }) => {
                                             }
                                             onClick={() => setModal(true)}
                                         >
-                                            Tahrirlash
+                                            {getReduxText(
+                                                'edit_button',
+                                                language
+                                            )}
                                             <img
                                                 src={EditIcon}
                                                 alt={'edit-icon'}

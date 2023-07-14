@@ -15,7 +15,7 @@ import 'swiper/css/scrollbar'
 
 import { FreeMode, Navigation, Scrollbar, Thumbs } from 'swiper'
 import { Link, useNavigate } from 'react-router-dom'
-import { getText } from '../locales'
+import { getReduxText, getText } from '../locales'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLoad } from '../hooks/request'
 import { GET_PROPERTY_DETAIL, GET_PROPERTY_LIST } from '../tools/urls'
@@ -390,28 +390,34 @@ const Card = () => {
                                 <AccordionItem>
                                     <AccordionHeader targetId="1">
                                         <div className="acor_name">
-                                            Mulk ma’lumotlari
+                                            {getReduxText(
+                                                'properties_information_card',
+                                                language
+                                            )}
                                         </div>
                                     </AccordionHeader>
                                     <AccordionBody accordionId="1">
                                         <div className="acor_p">
-                                            {
-                                                response?.propertyDetails
-                                                    ?.description
-                                            }
+                                            {response?.description}
                                         </div>
                                     </AccordionBody>
                                 </AccordionItem>
                                 <AccordionItem>
                                     <AccordionHeader targetId="2">
                                         <div className="acor_name">
-                                            Lot ma’lumotlari
+                                            {getReduxText(
+                                                'lots_information_card',
+                                                language
+                                            )}
                                         </div>
                                     </AccordionHeader>
                                     <AccordionBody accordionId="2">
                                         <div className="d-flex align-items-center mb-2">
                                             <div className="acor_p_2">
-                                                Mol-mulk turi
+                                                {getReduxText(
+                                                    'type_information_card',
+                                                    language
+                                                )}
                                             </div>
                                             <div className="acor_h_2">
                                                 {
@@ -424,7 +430,10 @@ const Card = () => {
                                         </div>
                                         <div className="d-flex align-items-center mb-2">
                                             <div className="acor_p_2">
-                                                Lot holati
+                                                {getReduxText(
+                                                    'status_information_card',
+                                                    language
+                                                )}
                                             </div>
                                             <div className="acor_h_2">
                                                 {
@@ -441,7 +450,10 @@ const Card = () => {
                                 <AccordionItem>
                                     <AccordionHeader targetId="3">
                                         <div className="acor_name">
-                                            Lot hujjatlari
+                                            {getReduxText(
+                                                'documents_information_card',
+                                                language
+                                            )}
                                         </div>
                                     </AccordionHeader>
                                     <AccordionBody accordionId="3">

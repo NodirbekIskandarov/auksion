@@ -4,9 +4,12 @@ import { usePostRequest } from '../hooks/request'
 import { LOGIN } from '../tools/urls'
 import Alert from '../components/alerts/AlertError'
 import { useNavigate } from 'react-router-dom'
+import { getReduxText } from '../locales'
+import { useSelector } from 'react-redux'
 
 const Login = () => {
     const navigate = useNavigate()
+    const language = useSelector((state) => state.language)
     const [phone, setPhone] = useState('')
     const [error, setError] = useState(false)
     const [errorText, setErrorText] = useState('')
@@ -28,11 +31,11 @@ const Login = () => {
                 navigate('/registration-sign', { state: { phone } })
                 localStorage.setItem('phone', phone)
             } else {
-                setErrorText("Ushbu telefon raqam ro'yxatdan o'tmagan")
+                setErrorText(getReduxText('phone_doesnot_exist', language))
                 setError(true)
             }
         } else {
-            setErrorText('Telefon raqam xato kiritildi')
+            setErrorText(getReduxText('physical_phone_error_text', language))
             setError(true)
         }
     }
@@ -52,7 +55,9 @@ const Login = () => {
                     <div className="row">
                         <div className="col-12 d-flex justify-content-center">
                             <div className="reg_box">
-                                <div className="reg_box_name">Kirish</div>
+                                <div className="reg_box_name">
+                                    {getReduxText('nav_7', language)}
+                                </div>
                                 <div className="reg_inp_box">
                                     <img
                                         className="reg_inp_img_1"
@@ -113,9 +118,10 @@ const Login = () => {
                                     />
                                 </div>
                                 <div className="reg_box_h text-center">
-                                    Tasdiqlash tugmasini bosish orqali, Siz
-                                    “Maxfiylik siyosati” shartlariga
-                                    roziligingizni bildirasiz!
+                                    {getReduxText(
+                                        'login_description',
+                                        language
+                                    )}
                                 </div>
                                 <div
                                     onClick={() => login()}
@@ -126,7 +132,7 @@ const Login = () => {
                                             : { opacity: 0.5 }
                                     }
                                 >
-                                    Tasdiqlash
+                                    {getReduxText('register_confirm', language)}
                                 </div>
                             </div>
                         </div>

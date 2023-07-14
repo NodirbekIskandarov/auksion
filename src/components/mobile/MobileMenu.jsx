@@ -26,11 +26,11 @@ export default function MobileMenu({
                     <div className="nav_lang d-flex flex-row align-items-center">
                         <img
                             src={
-                                language === 'uz'
-                                    ? '/img/icon_flag_1.png'
+                                language === 'en'
+                                    ? '/img/flag-um-svgrepo-com.svg'
                                     : language === 'ru'
                                     ? '/img/twemoji_flag-russia.svg'
-                                    : '/img/flag-um-svgrepo-com.svg'
+                                    : '/img/twemoji_flag-uzbekistan.svg'
                             }
                             alt=""
                             className={'flag-icon'}

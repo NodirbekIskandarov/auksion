@@ -8,13 +8,13 @@ export const getLanguage = () => {
 }
 
 export const getText = (word) => {
-    return getLanguage() === 'uz'
-        ? uz[word]
+    return getLanguage() === 'en'
+        ? en[word]
         : getLanguage() === 'ru'
         ? ru[word]
-        : en[word]
+        : uz[word]
 }
 
 export const getReduxText = (word, lang) => {
-    return lang === 'uz' ? uz[word] : lang === 'ru' ? ru[word] : en[word]
+    return lang === 'en' ? en[word] : lang === 'ru' ? ru[word] : uz[word]
 }

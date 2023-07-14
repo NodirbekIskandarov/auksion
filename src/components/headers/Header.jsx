@@ -12,6 +12,8 @@ const Header = () => {
     const language = useSelector((state) => state.language)
     const width = document.getElementById('root').clientWidth
 
+    console.log(storiesArray)
+
     const { response } = useLoad(
         {
             url: GET_MAIN_CATALOG.replace('en', language),
@@ -32,7 +34,17 @@ const Header = () => {
     const filterStories = () => {
         let newArray = []
         stories?.forEach((item) => {
-            newArray.push({ url: item.video })
+            if (
+                item?.video.includes('.mp4') ||
+                item?.video.includes('.avi') ||
+                item?.video.includes('.wmv') ||
+                item?.video.includes('.mov') ||
+                item?.video.includes('.webm')
+            ) {
+                newArray.push({ url: item.video, type: 'video' })
+            } else {
+                newArray.push({ url: item.video })
+            }
         })
         setStoriesArray(newArray)
     }

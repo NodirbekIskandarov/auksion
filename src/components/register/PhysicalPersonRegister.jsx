@@ -10,6 +10,7 @@ import {
 } from '../../tools/urls'
 import { useSelector } from 'react-redux'
 import { Formik } from 'formik'
+import { getReduxText } from '../../locales'
 
 export default function PhysicalPersonRegister({
     setErrorText,
@@ -73,11 +74,11 @@ export default function PhysicalPersonRegister({
             },
         })
         if (response) {
-            setErrorText('Telefon raqamingizga yuborilgan kodni kiriting')
+            setErrorText(getReduxText('physical_code_notification', language))
             setError(true)
             inputRef.current.focus()
         } else if (error) {
-            setErrorText("Ma'lumotlarni kiritishda xatolik yuz berdi")
+            setErrorText(getReduxText('physical_all_data_error_text', language))
             setError(true)
         }
     }
@@ -100,18 +101,18 @@ export default function PhysicalPersonRegister({
 
             if (response) {
                 setErrorText(
-                    'Akkauntingiz muvaffaqiyatli yaratildi. Tasdiqlash tugmasini bosing.'
+                    getReduxText('physical_final_success_text', language)
                 )
                 setError(true)
                 setSuccess(true)
             } else if (error) {
-                setErrorText("Ma'lumotlarni kiritishda xatolik yuz berdi")
+                setErrorText(
+                    getReduxText('physical_all_data_error_text', language)
+                )
                 setError(true)
             }
         } else {
-            setErrorText(
-                'Telefon raqamingizga yuborilgan 6 xonalik kodni kiriting'
-            )
+            setErrorText(getReduxText('physical_code_notification', language))
             setError(true)
         }
     }
@@ -119,39 +120,54 @@ export default function PhysicalPersonRegister({
     const validateRegister = (values) => {
         if (
             values.citizen &&
-            values.stir?.length === 9 &&
+            values.stir &&
             values.fsl &&
             values.birthDate &&
             values.gender &&
-            values.passportNumber?.length === 9 &&
+            values.passportNumber &&
             values.passportDate &&
-            values.identification?.length === 14 &&
-            values.phone?.length >= 12
+            values.identification &&
+            values.phone
         ) {
-            registerFirstStep(values.phone)
-        } else if (values.stir?.length !== 9) {
-            setError(true)
-            setErrorText(
-                "Stir ma'lumotlari xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
-        } else if (values.passportNumber?.length !== 9) {
-            setError(true)
-            setErrorText(
-                "Passport seriyasi xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
-        } else if (values.identification?.length !== 14) {
-            setError(true)
-            setErrorText(
-                "JSHSHIR xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
-        } else if (values.phone?.length < 12) {
-            setError(true)
-            setErrorText(
-                "Telefon raqam xato kiritildi. Iltimos qaytadan urinib ko'ring"
-            )
+            if (
+                values.citizen &&
+                values.stir?.length === 9 &&
+                values.fsl &&
+                values.birthDate &&
+                values.gender &&
+                values.passportNumber?.length === 9 &&
+                values.passportDate &&
+                values.identification?.length === 14 &&
+                values.phone?.length >= 12
+            ) {
+                registerFirstStep(values.phone)
+            } else if (values.stir?.length !== 9) {
+                setError(true)
+                setErrorText(getReduxText('physical_stir_error_text', language))
+            } else if (values.passportNumber?.length !== 9) {
+                setError(true)
+                setErrorText(
+                    getReduxText('physical_passport_error_text', language)
+                )
+            } else if (values.identification?.length !== 14) {
+                setError(true)
+                setErrorText(
+                    getReduxText('physical_jshshr_error_text', language)
+                )
+            } else if (values.phone?.length < 12) {
+                setError(true)
+                setErrorText(
+                    getReduxText('physical_phone_error_text', language)
+                )
+            } else {
+                setError(true)
+                setErrorText(
+                    getReduxText('physical_fill_all_error_text', language)
+                )
+            }
         } else {
             setError(true)
-            setErrorText("Barcha ma'lumotlarni to'liq kiritish talab etiladi")
+            setErrorText(getReduxText('physical_fill_all_error_text', language))
         }
     }
 
@@ -162,7 +178,7 @@ export default function PhysicalPersonRegister({
                 inn: values.stir,
                 fsl: values.fsl,
                 date_birth: values.birthDate,
-                gender: values.gender === 'Erkak' ? 'Male' : 'Female',
+                gender: values.gender,
                 passport_num: values.passportNumber,
                 passport_date: values.passportDate,
                 jshshir: values.identification,
@@ -175,9 +191,7 @@ export default function PhysicalPersonRegister({
             navigate('/login')
         } else {
             setError(true)
-            setErrorText(
-                "Yangi akkaunt yaratilmadi. Iltimos qaytadan urinib ko'ring"
-            )
+            setErrorText(getReduxText('physical_fail_error_text', language))
         }
     }
     return (
@@ -188,7 +202,7 @@ export default function PhysicalPersonRegister({
                     stir: '',
                     fsl: '',
                     birthDate: '',
-                    gender: 'Erkak',
+                    gender: 'Male',
                     passportNumber: '',
                     passportDate: '',
                     identification: '',
@@ -205,7 +219,12 @@ export default function PhysicalPersonRegister({
                         <div className="log_main row">
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
-                                    <div className="inp_name">*FIO</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_name',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -219,7 +238,12 @@ export default function PhysicalPersonRegister({
 
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Fuqoroligi</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_citizen',
+                                            language
+                                        )}
+                                    </div>
                                     <select
                                         name={'citizen'}
                                         onChange={handleChange}
@@ -234,7 +258,12 @@ export default function PhysicalPersonRegister({
 
                             <div className="log_main_type col-lg-4 col-12">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Stir</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_stir',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -251,7 +280,10 @@ export default function PhysicalPersonRegister({
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Tug‘ilgan sana
+                                        {getReduxText(
+                                            'main_register_birthDate',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="date"
@@ -265,22 +297,36 @@ export default function PhysicalPersonRegister({
                             </div>
                             <div className="log_main_type col-lg-4 col-12">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Jinsi</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_gender',
+                                            language
+                                        )}
+                                    </div>
                                     <select
                                         name={'gender'}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.gender}
                                     >
-                                        <option value="Erkak">Erkak</option>
-                                        <option value="Ayol">Ayol</option>
+                                        <option value="Male">
+                                            {getReduxText('m_gender', language)}
+                                        </option>
+                                        <option value="Female">
+                                            {getReduxText('f_gender', language)}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
 
                             <div className="log_main_type col-lg-4 col-12">
                                 <div className="inp_box">
-                                    <div className="inp_name">*JSHSHIR</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_inn',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -297,7 +343,10 @@ export default function PhysicalPersonRegister({
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Pasport seriyasi va raqami
+                                        {getReduxText(
+                                            'main_register_passport_number',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="text"
@@ -312,7 +361,10 @@ export default function PhysicalPersonRegister({
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Pasport berilgan sana
+                                        {getReduxText(
+                                            'main_register_passport_date',
+                                            language
+                                        )}
                                     </div>
                                     <input
                                         type="date"
@@ -327,7 +379,10 @@ export default function PhysicalPersonRegister({
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
                                     <div className="inp_name">
-                                        *Hudud/viloyat nomi
+                                        {getReduxText(
+                                            'main_register_region',
+                                            language
+                                        )}
                                     </div>
                                     <select
                                         name=""
@@ -355,7 +410,12 @@ export default function PhysicalPersonRegister({
                         <div className="log_main row">
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Tuman nomi</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_district',
+                                            language
+                                        )}
+                                    </div>
                                     <select
                                         id=""
                                         name={'district'}
@@ -382,7 +442,12 @@ export default function PhysicalPersonRegister({
 
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12 d-flex flex-row">
                                 <div className="inp_box">
-                                    <div className="inp_name">*Telefon</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'main_register_phone',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder=""
@@ -397,12 +462,17 @@ export default function PhysicalPersonRegister({
                                     // onClick={() => validateRegister()}
                                     className="inp_btn active text-center"
                                 >
-                                    SMS yuborish
+                                    {getReduxText('send_sms', language)}
                                 </button>
                             </div>
                             <div className="log_main_type log_main_type_2 col-lg-4 col-12 d-flex flex-row">
                                 <div className="inp_box">
-                                    <div className="inp_name">*SMS kod</div>
+                                    <div className="inp_name">
+                                        {getReduxText(
+                                            'legal_register_code',
+                                            language
+                                        )}
+                                    </div>
                                     <input
                                         ref={inputRef}
                                         type="text"
@@ -440,12 +510,15 @@ export default function PhysicalPersonRegister({
                                     } else {
                                         setError(true)
                                         setErrorText(
-                                            "Yangi akkaunt yaratilmadi. Iltimos qaytadan urinib ko'ring"
+                                            getReduxText(
+                                                'physical_fail_error_text',
+                                                language
+                                            )
                                         )
                                     }
                                 }}
                             >
-                                Tasdiqlash
+                                {getReduxText('register_confirm', language)}
                             </div>
                         </div>
                     </form>
